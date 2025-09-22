@@ -31,4 +31,4 @@ I feel like I have degraded as a person. I guess its a good thing I see myself m
 
 I mean, Just look at my Discord Profile:
 
-[Discord Profile.png](src/posts/media/Working on New Stuff/Discord Profile.png)
+<img src="https://github.com/GH0STP4WZ/beta.gh0stp4wz.github.io/blob/main/src/posts/media/Working%20on%20New%20Stuff/Discord%20Profile.png">

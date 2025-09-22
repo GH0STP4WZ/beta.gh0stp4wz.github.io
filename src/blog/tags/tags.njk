@@ -7,7 +7,6 @@ pageIcon: 📝
 
 <div class="blog-filter-page">
     <div class="container">
-        <!-- Tag Filter Controls -->
         <div class="filter-controls card">
             <h3>Filter by Tags</h3>
             <div class="tag-filters" id="tagFilters">
@@ -23,8 +22,6 @@ pageIcon: 📝
                 <span id="resultCount" class="result-count">Showing all posts</span>
             </div>
         </div>
-
-        <!-- Blog Posts Grid -->
         <div class="blog-grid" id="blogGrid">
             {% for post in collections.posts %}
             <article class="blog-post card" data-tags='{{ post.data.tags | join(",") | safe }}'>
@@ -57,8 +54,6 @@ pageIcon: 📝
             </article>
             {% endfor %}
         </div>
-
-        <!-- No Results Message -->
         <div id="noResults" class="no-results card" style="display: none;">
             <h3>No posts found</h3>
             <p>Try selecting different tags or clearing your filters.</p>
