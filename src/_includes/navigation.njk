@@ -1,0 +1,144 @@
+<nav class="navigation">
+    <div class="container">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <a href="/" class="brand-link">
+                    <span class="brand-text">GH0STP4WZ</span>
+                </a>
+            </div>
+            
+            <div class="nav-tabs">
+                <a href="/" class="nav-tab {% if page.url == '/' %}active{% endif %}">
+                    Home
+                </a>
+                <a href="/links/" class="nav-tab {% if '/links/' in page.url %}active{% endif %}">
+                    Links
+                </a>
+                <a href="/downloads/" class="nav-tab {% if '/downloads/' in page.url %}active{% endif %}">
+                    Downloads
+                </a>
+                <a href="/blog/" class="nav-tab {% if '/blog/' in page.url %}active{% endif %}">
+                    Blog
+                </a>
+                <a href="/misc/" class="nav-tab {% if '/misc/' in page.url %}active{% endif %}">
+                    Misc
+                </a>
+                <!-- External link example -->
+                <a href="https://your-other-website.com" class="nav-tab external" target="_blank" rel="noopener">
+                    External
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15,3 21,3 21,9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<style>
+.navigation {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.brand-link {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.brand-text {
+    background: linear-gradient(45deg, var(--primary), var(--primary-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-tab {
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-tab:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+    transform: translateY(-1px);
+}
+
+.nav-tab.active {
+    background: var(--primary-dim);
+    color: var(--primary-bright);
+}
+
+.nav-tab.external .external-icon {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.nav-tab.external:hover .external-icon {
+    opacity: 1;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 3px;
+}
+
+.mobile-menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: var(--text);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .nav-tabs {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Mobile menu styles would go here */
+}
+</style>

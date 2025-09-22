@@ -1,0 +1,58 @@
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p class="footer-text">
+                © 2025 Aurora "GH0STP4WZ" Hartman
+            </p>
+            <p class="footer-love">
+                Made with <span class="heart">❤️</span> and <span class="trans-flag">🏳️‍⚧️</span> rights
+            </p>
+        </div>
+    </div>
+</footer>
+
+<style>
+.footer {
+    margin-top: auto;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.footer-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-love {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.heart {
+    color: var(--primary);
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+.trans-flag {
+    filter: brightness(1.2);
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        font-size: 0.8rem;
+    }
+}
+</style>

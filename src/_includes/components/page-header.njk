@@ -1,0 +1,66 @@
+<header class="page-header slide-up">
+    <div class="container">
+        <div class="header-content">
+            {% if pageIcon %}
+            <div class="page-icon">{{ pageIcon | safe }}</div>
+            {% endif %}
+            <h1 class="page-title">{{ title }}</h1>
+            {% if subtitle %}
+            <p class="page-subtitle">{{ subtitle }}</p>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+<style>
+.page-header {
+    padding: 3rem 0 2rem;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+.header-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary), var(--primary-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        padding: 2rem 0 1.5rem;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem;
+    }
+}
+</style>

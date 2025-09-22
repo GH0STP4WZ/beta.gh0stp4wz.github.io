@@ -1,0 +1,58 @@
+---
+layout: base.njk
+title: Home
+description: Personal website of Aurora Dess (GH0STP4WZ) - Demi-Girl, Developer, and Community Moderator
+---
+
+<div class="home-page">
+    <div class="container">
+        <div class="home-grid">
+            <div class="profile-section">
+                {% include "components/profile-card.njk" %}
+            </div>
+            
+            <div class="about-section">
+                {% include "components/about-card.njk" %}
+            </div>
+        </div>
+        
+        {% include "components/friends-section.njk" %}
+    </div>
+</div>
+
+<style>
+.home-page {
+    padding: 2rem 0;
+    min-height: calc(100vh - 200px);
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    align-items: start;
+}
+
+.profile-section {
+    display: flex;
+    justify-content: center;
+}
+
+.about-section {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 968px) {
+    .home-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .profile-section,
+    .about-section {
+        justify-content: center;
+    }
+}
+</style>

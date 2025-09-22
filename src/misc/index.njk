@@ -1,0 +1,243 @@
+---
+layout: base.njk
+title: Misc
+subtitle: Random stuff, experiments, and fun projects
+pageIcon: 🎲
+---
+
+{% include "components/page-header.njk" %}
+
+<div class="misc-page">
+    <div class="container">
+        <div class="misc-grid">
+            <div class="misc-item card">
+                <div class="misc-header">
+                    <h3>Color Palette Generator</h3>
+                    <p>Generate beautiful color palettes for your projects</p>
+                </div>
+                <div class="color-palette">
+                    <div class="color-swatch" style="background: var(--ctp-red);"></div>
+                    <div class="color-swatch" style="background: var(--ctp-pink);"></div>
+                    <div class="color-swatch" style="background: var(--ctp-mauve);"></div>
+                    <div class="color-swatch" style="background: var(--ctp-blue);"></div>
+                    <div class="color-swatch" style="background: var(--ctp-green);"></div>
+                </div>
+                <button class="misc-btn btn-hover">Generate New Palette</button>
+            </div>
+            
+            <div class="misc-item card">
+                <div class="misc-header">
+                    <h3>ASCII Art Generator</h3>
+                    <p>Convert text to ASCII art</p>
+                </div>
+                <div class="ascii-demo">
+                    <pre class="ascii-art">
+ ██████╗ ██╗  ██╗ ██████╗ ███████╗████████╗
+██╔════╝ ██║  ██║██╔═══██╗██╔════╝╚══██╔══╝
+██║  ███╗███████║██║   ██║███████╗   ██║   
+██║   ██║██╔══██║██║   ██║╚════██║   ██║   
+╚██████╔╝██║  ██║╚██████╔╝███████║   ██║   
+ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝   
+                    </pre>
+                </div>
+                <button class="misc-btn btn-hover">Try It Out</button>
+            </div>
+            
+            <div class="misc-item card">
+                <div class="misc-header">
+                    <h3>Random Quote</h3>
+                    <p>Get inspired with random quotes</p>
+                </div>
+                <div class="quote-display">
+                    <blockquote>
+                        "The only way to do great work is to love what you do."
+                    </blockquote>
+                    <cite>- Steve Jobs</cite>
+                </div>
+                <button class="misc-btn btn-hover">New Quote</button>
+            </div>
+            
+            <div class="misc-item card">
+                <div class="misc-header">
+                    <h3>Pixel Art Canvas</h3>
+                    <p>Create simple pixel art</p>
+                </div>
+                <div class="pixel-canvas">
+                    <div class="pixel-grid">
+                        <!-- 8x8 grid for demo -->
+                        <div class="pixel" style="background: var(--ctp-red);"></div>
+                        <div class="pixel" style="background: var(--ctp-red);"></div>
+                        <div class="pixel"></div>
+                        <div class="pixel"></div>
+                        <div class="pixel"></div>
+                        <div class="pixel"></div>
+                        <div class="pixel" style="background: var(--ctp-red);"></div>
+                        <div class="pixel" style="background: var(--ctp-red);"></div>
+                        <!-- More pixels... -->
+                        <div class="pixel" style="background: var(--ctp-red);"></div>
+                        <div class="pixel" style="background: var(--ctp-red);"></div>
+                        <div class="pixel" style="background: var(--ctp-red);"></div>
+                        <div class="pixel"></div>
+                        <div class="pixel"></div>
+                        <div class="pixel" style="background: var(--ctp-red);"></div>
+                        <div class="pixel" style="background: var(--ctp-red);"></div>
+                        <div class="pixel" style="background: var(--ctp-red);"></div>
+                    </div>
+                </div>
+                <button class="misc-btn btn-hover">Clear Canvas</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.misc-page {
+    padding-bottom: 3rem;
+}
+
+.misc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.misc-item {
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.misc-item:hover {
+    border-color: var(--primary-dim);
+    transform: translateY(-5px);
+}
+
+.misc-header {
+    margin-bottom: 1.5rem;
+}
+
+.misc-header h3 {
+    color: var(--primary-bright);
+    margin-bottom: 0.5rem;
+}
+
+.misc-header p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.color-palette {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    transition: transform 0.3s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.ascii-demo {
+    margin-bottom: 1.5rem;
+    background: var(--surface-hover);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+.ascii-art {
+    color: var(--primary);
+    font-size: 0.6rem;
+    line-height: 1;
+    margin: 0;
+    white-space: pre;
+}
+
+.quote-display {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: var(--surface-hover);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+}
+
+.quote-display blockquote {
+    font-style: italic;
+    color: var(--text);
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.quote-display cite {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.pixel-canvas {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.pixel-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 1px;
+    background: var(--border);
+    padding: 1px;
+    border-radius: 4px;
+}
+
+.pixel {
+    width: 20px;
+    height: 20px;
+    background: var(--surface-hover);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pixel:hover {
+    transform: scale(1.1);
+}
+
+.misc-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.misc-btn:hover {
+    background: var(--primary-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(243, 139, 168, 0.3);
+}
+
+@media (max-width: 768px) {
+    .misc-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ascii-art {
+        font-size: 0.5rem;
+    }
+    
+    .pixel {
+        width: 15px;
+        height: 15px;
+    }
+}
+</style>

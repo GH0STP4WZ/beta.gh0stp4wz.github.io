@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - GH0STP4WZ</title>
+    <meta name="description" content="Personal website of Aurora Dess (GH0STP4WZ) - Demi-Girl, Developer, and Community Moderator">
+    <link rel="stylesheet" href="/css/global.css">
+    <!-- Added animations stylesheet -->
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <nav class="navigation">
+    <div class="container">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <a href="/" class="brand-link">
+                    <span class="brand-text">GH0STP4WZ</span>
+                </a>
+            </div>
+            
+            <div class="nav-tabs">
+                <a href="/" class="nav-tab active">
+                    Home
+                </a>
+                <a href="/links/" class="nav-tab ">
+                    Links
+                </a>
+                <a href="/downloads/" class="nav-tab ">
+                    Downloads
+                </a>
+                <a href="/blog/" class="nav-tab ">
+                    Blog
+                </a>
+                <a href="/misc/" class="nav-tab ">
+                    Misc
+                </a>
+                <!-- External link example -->
+                <a href="https://your-other-website.com" class="nav-tab external" target="_blank" rel="noopener">
+                    External
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15,3 21,3 21,9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<style>
+.navigation {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.brand-link {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.brand-text {
+    background: linear-gradient(45deg, var(--primary), var(--primary-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-tab {
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-tab:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+    transform: translateY(-1px);
+}
+
+.nav-tab.active {
+    background: var(--primary-dim);
+    color: var(--primary-bright);
+}
+
+.nav-tab.external .external-icon {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.nav-tab.external:hover .external-icon {
+    opacity: 1;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 3px;
+}
+
+.mobile-menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: var(--text);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .nav-tabs {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Mobile menu styles would go here */
+}
+</style>
+
+    
+    <main class="fade-in">
+        
+<div class="home-page">
+    <div class="container">
+        <div class="home-grid">
+            <div class="profile-section">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<div class="profile-card card slide-up">
+  <div class="profile-header">
+    <div class="profile-avatar">
+      <img src="https://api.lanyard.rest/801089753038061669.png" alt="GH0STP4WZ Avatar" class="avatar-image">
+      <div class="avatar-ring"></div>
+    </div>
+    <div class="profile-info">
+      <center>
+        <h2 text-align="center" class="profile-name">GH0STP4WZ</h2>
+        <p class="profile-subtitle">Demi-Girl ⛧ It/Its</p>
+      </center>
+    </div>
+  </div>
+
+  <div class="status-section" id="discord-status-container">
+    <!-- Live Discord status will be injected here -->
+  </div>
+
+  <div class="badges-section">
+    <img src="/assets/images/xeniaS.webp" alt="Powered by Linux" class="badge">
+    <img src="/assets/images/child-safe.jpg" alt="Child Safe" class="badge">
+  </div>
+</div>
+
+<script>
+  
+  // Lanyard Discord Status Script
+  let previousActivities = {};
+  let rotationAngles = {};
+  let lastFrameTime = 0;
+  const ROTATION_SPEED = 30;
+
+  function updateRotations(currentTime) {
+    if (!lastFrameTime) lastFrameTime = currentTime;
+    const deltaTime = (currentTime - lastFrameTime) / 1000;
+    lastFrameTime = currentTime;
+
+    document.querySelectorAll('.rotating').forEach(element => {
+      const activityId = element.closest('[data-activity-id]')?.getAttribute('data-activity-id');
+      if (!rotationAngles[activityId]) rotationAngles[activityId] = 0;
+      rotationAngles[activityId] = (rotationAngles[activityId] + ROTATION_SPEED * deltaTime) % 360;
+      element.style.transform = `rotate(${rotationAngles[activityId]}deg)`;
+    });
+
+    requestAnimationFrame(updateRotations);
+  }
+
+  function activityChanged(oldActivity, newActivity) {
+    if (!oldActivity || !newActivity) return true;
+    return JSON.stringify(oldActivity) !== JSON.stringify(newActivity);
+  }
+
+  function createTruncatedElement(text, className) {
+    return `<div class="text-truncate ${className}" title="${text.replace(/"/g, '&quot;')}">${text}</div>`;
+  }
+
+  function fetchDiscordStatus() {
+    fetch('https://api.lanyard.rest/v1/users/801089753038061669')
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) updateDiscordStatus(data.data);
+      })
+      .catch(error => console.error('Error fetching Discord status:', error));
+  }
+
+  function getAssetUrl(activity, assetKey) {
+    const asset = activity.assets?.[assetKey];
+    if (!asset) return null;
+
+    if (asset.startsWith('mp:external/')) {
+      const externalUrl = asset.split('/').slice(2).join('/');
+      return decodeURIComponent(externalUrl);
+    }
+
+    if (asset.startsWith('http://') || asset.startsWith('https://')) return asset;
+    if (asset.startsWith('spotify:')) return `https://i.scdn.co/image/${asset.substring(8)}`;
+
+    if (activity.application_id) {
+      return `https://cdn.discordapp.com/app-assets/${activity.application_id}/${asset}`;
+    }
+
+    return asset;
+  }
+
+  function updateDiscordStatus(data) {
+    const statusElement = document.getElementById('discord-status-container');
+    let statusHTML = '';
+
+    if (data.discord_status) {
+      let statusIcon = '';
+      let statusText = data.discord_status;
+      switch(data.discord_status) {
+        case 'online': statusIcon = '<span class="status-dot" style="color: var(--ctp-green);"> </span>'; statusText = 'Online'; break;
+        case 'idle': statusIcon = '<span class="status-dot" style="color: var(--ctp-yellow);"> </span>'; statusText = 'Idle'; break;
+        case 'dnd': statusIcon = '<span class="status-dot" style="color: var(--ctp-red);"> </span>'; statusText = 'Do Not Disturb'; break;
+        default: statusIcon = '<span class="status-dot" style="color: var(--ctp-surface0);"> </span>'; statusText = 'Offline';
+      }
+      statusHTML += `<div class="status-line" style="color: ${statusIcon.match(/color: (.*?);/)[1]}">${statusIcon} ${statusText}</div>`;
+    }
+
+    const customStatus = data.activities.find(a => a.type === 4);
+    if (customStatus && customStatus.state) {
+      let emojiHTML = '';
+      if (customStatus.emoji) {
+        if (customStatus.emoji.id) {
+          const animated = customStatus.emoji.animated ? 'gif' : 'png';
+          emojiHTML = `<img style="height: 1em; vertical-align: middle; margin-right: 4px;" src="https://cdn.discordapp.com/emojis/${customStatus.emoji.id}.${animated}" alt="${customStatus.emoji.name}" title=":${customStatus.emoji.name}:" />`;
+        } else {
+          emojiHTML = `<span title=":${customStatus.emoji.name}:">${customStatus.emoji.name} </span>`;
+        }
+      }
+      statusHTML += `<div class="status-message">${emojiHTML}${customStatus.state}</div>`;
+    }
+
+    const activities = data.activities.filter(a => a.type !== 4);
+    let activitiesHTML = '';
+
+    if (activities.length > 0) {
+      activities.forEach(activity => {
+        const activityId = `${activity.type}-${activity.name}`;
+        if (!activityChanged(previousActivities[activityId], activity)) {
+          const existing = document.querySelector(`[data-activity-id="${activityId}"]`);
+          if (existing) {
+            activitiesHTML += existing.outerHTML;
+            return;
+          }
+        }
+
+        switch(activity.type) {
+          case 2: {
+            const musicImage = getAssetUrl(activity, 'large_image') || '';
+            const currentRotation = rotationAngles[activityId] || 0;
+            activitiesHTML += `
+              <div class="activity spotify" data-activity-id="${activityId}">
+                <div class="activity-header"><i class="fas fa-music"></i> Listening to ${activity.name}</div>
+                <div class="activity-content">
+                  ${musicImage ?
+                    `<img src="${musicImage}" class="activity-img rotating" style="transform: rotate(${currentRotation}deg)" />` :
+                    `<div class="placeholder-img rotating" style="transform: rotate(${currentRotation}deg)">♪</div>`}
+                  <div class="activity-details">
+                    ${createTruncatedElement(activity.details || 'Unknown song', 'song-title')}
+                    ${createTruncatedElement(activity.state || 'Unknown artist', 'song-artist')}
+                    ${activity.assets?.large_text ? createTruncatedElement(activity.assets.large_text, 'song-album') : ''}
+                  </div>
+                </div>
+              </div>`;
+            break;
+          }
+
+          default:
+            // You can handle other activity types here if you want!
+            break;
+        }
+
+        previousActivities[activityId] = activity;
+      });
+
+      statusHTML += `<div class="activities-container">${activitiesHTML}</div>`;
+    } else if (data.discord_status !== 'offline') {
+      statusHTML += '<div class="activity-none">Not doing anything</div>';
+    }
+
+    statusElement.innerHTML = statusHTML || 'Offline';
+  }
+
+  fetchDiscordStatus();
+  setInterval(fetchDiscordStatus, 5000);
+  requestAnimationFrame(updateRotations);
+</script>
+<script src="https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+
+<style>
+/* ========== Profile Layout (unchanged parts kept for context) ========== */
+.profile-card {
+    max-width: 350px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-hover) 100%);
+    border: 2px solid var(--primary-dim);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ========== Avatar ========== */
+.avatar-image {
+   width: 250px;
+   height: 250px;
+   border-radius: 50%;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+.avatar-ring {
+    background-color: var(--ctp-red);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ========== Status Section ========== */
+.status-section, #discord-status-container {
+    margin-bottom: 1.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    scrollbar-width: thin;
+}
+
+.status-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: var(--surface-hover);
+    border-radius: 8px;
+    border-left: 3px solid currentColor; /* This makes it follow the dot color */
+    color: var(--ctp-red); /* Default; overridden by JS */
+}
+
+/* Status Dot */
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* ========== Custom Status Message ========== */
+.status-message {
+    padding: 0.5rem 0.75rem;
+    background: var(--surface-hover);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    color: var(--text);
+    border-left: 3px solid var(--ctp-blue);
+}
+
+/* ========== Activities Layout ========== */
+.activities-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Each activity */
+.activity {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface-hover);
+    border-radius: 8px;
+    padding: 0.75rem;
+    border-left: 3px solid var(--ctp-green);
+}
+
+/* Header */
+.activity-header {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--ctp-green);
+}
+
+/* Content layout: album left, info right */
+.activity-content {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+/* Rotating album art */
+.activity.spotify .activity-img,
+.activity.spotify .placeholder-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--surface);
+    object-fit: cover;
+}
+
+/* Details text block */
+.activity-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+/* Individual lines */
+.song-title {
+    font-weight: bold;
+    color: var(--text);
+}
+
+.song-artist,
+.song-album {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Truncate long lines with ellipsis */
+.text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ========== Badges Section ========== */
+.badges-section {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.badge {
+    height: 30px;
+    width: auto;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.badge:hover {
+    transform: scale(1.1);
+}
+
+/* ========== Animations ========== */
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px currentColor; }
+    100% { box-shadow: 0 0 15px currentColor, 0 0 25px currentColor; }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+</style>
+
+            </div>
+            
+            <div class="about-section">
+                <div class="about-card card slide-up">
+    <h2 class="about-title">About Me</h2>
+    
+    <div class="about-content">
+        <p>Hi, my name is Aurora Dess "Ghostie" Hartman, better known online as "GH0STP4WZ" or "R3DGH0STP4WZ". Friends may also just call me GHOST.</p>
+        
+        <p>I'm a 24 year old autistic transgender (male to female) emo demi-girl who regularly struggles with social anxiety and the occasional depression.</p>
+        
+        <p>I am a part of the <a href="#" class="highlight-link">Insane Kart Wii</a> team as a community moderator and online server manager. I also manage the IKW Time Trial Database as a side job.</p>
+        
+        <p>I primarily work in Mario Kart Wii modding, and basic web development.</p>
+        
+        <p>I do not take commissions. I probably never will take commissions.</p>
+        
+        <p>For contact and socials, see the <a href="/links/" class="highlight-link">links</a> page.</p>
+    </div>
+</div>
+
+<style>
+.about-card {
+    max-width: 600px;
+}
+
+.about-title {
+    color: var(--primary-bright);
+    border-bottom: 2px solid var(--primary-dim);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-content p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.highlight-link {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--primary-dim);
+    transition: all 0.3s ease;
+}
+
+.highlight-link:hover {
+    color: var(--primary-bright);
+    text-decoration-color: var(--primary-bright);
+    text-shadow: 0 0 8px var(--primary-dim);
+}
+</style>
+
+            </div>
+        </div>
+        
+        <section class="friends-section slide-up">
+    <h2 class="section-title">Friends' Websites</h2>
+    
+    <div class="friends-grid">
+        
+    </div>
+</section>
+
+<style>
+.friends-section {
+    margin-top: 3rem;
+}
+
+.section-title {
+    color: var(--primary-bright);
+    border-bottom: 2px solid var(--primary-dim);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.friends-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.friend-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.friend-card:hover {
+    border-color: var(--primary-dim);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(243, 139, 168, 0.2);
+}
+
+.friend-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border: 3px solid var(--primary-dim);
+    transition: border-color 0.3s ease;
+}
+
+.friend-card:hover .friend-avatar {
+    border-color: var(--primary);
+}
+
+.friend-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.friend-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.friend-url {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .friends-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.75rem;
+    }
+    
+    .friend-card {
+        padding: 1rem 0.75rem;
+    }
+    
+    .friend-avatar {
+        width: 60px;
+        height: 60px;
+    }
+}
+</style>
+
+    </div>
+</div>
+
+<style>
+.home-page {
+    padding: 2rem 0;
+    min-height: calc(100vh - 200px);
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    align-items: start;
+}
+
+.profile-section {
+    display: flex;
+    justify-content: center;
+}
+
+.about-section {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 968px) {
+    .home-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .profile-section,
+    .about-section {
+        justify-content: center;
+    }
+}
+</style>
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p class="footer-text">
+                © 2025 Aurora "GH0STP4WZ" Hartman
+            </p>
+            <p class="footer-love">
+                Made with <span class="heart">❤️</span> and <span class="trans-flag">🏳️‍⚧️</span> rights
+            </p>
+        </div>
+    </div>
+</footer>
+
+<style>
+.footer {
+    margin-top: auto;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.footer-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-love {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.heart {
+    color: var(--primary);
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+.trans-flag {
+    filter: brightness(1.2);
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        font-size: 0.8rem;
+    }
+}
+</style>
+
+    
+    <script src="/js/main.js"></script>
+    <!-- Added animations script -->
+    <script src="/js/animations.js"></script>
+</body>
+</html>
