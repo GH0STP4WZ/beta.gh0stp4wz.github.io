@@ -2,7 +2,7 @@
 title: What the Fuck is happening!?
 date: 2024-05-24
 themeColor: "#ff0000"
-tags: ["personal", "mental-health", "world-events"]
+tags: ["Personal"]
 layout: layouts/post.njk
 ---
 I am not gonna sugarcoat it, I've lost track.

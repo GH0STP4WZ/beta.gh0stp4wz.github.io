@@ -2,7 +2,7 @@
 title: I am Sorry
 date: 2024-10-14
 themeColor: "#ff0000"
-tags: ["personal", "relationships", "mental-health"]
+tags: ["Personal", "Mental Health", "Rant"]
 layout: layouts/post.njk
 ---
 I often find myself longing for the love of another. Someone who will hold me dear...Someone who will make me feel better in case im ever down...

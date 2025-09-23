@@ -2,7 +2,7 @@
 title: My New Blog System
 date: 2025-03-11
 themeColor: "#8a2be2"
-tags: ["meta", "blogging", "tech"]
+tags: ["Web Development"]
 layout: layouts/post.njk
 ---
 

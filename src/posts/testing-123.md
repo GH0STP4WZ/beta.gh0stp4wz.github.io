@@ -2,7 +2,7 @@
 title: Testing...1...2...3...
 date: 2025-03-11
 themeColor: "#8a2be2"
-tags: ["meta", "testing"]
+tags: ["Testing"]
 layout: layouts/post.njk
 ---
 

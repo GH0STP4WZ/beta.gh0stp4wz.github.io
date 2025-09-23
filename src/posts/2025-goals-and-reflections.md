@@ -2,7 +2,7 @@
 title: 2025 Goals and Reflections
 date: 2025-01-05
 themeColor: #a6e3a1
-tags: [Personal, Goals, Reflection, New Year]
+tags: [Personal]
 layout: layouts/post.njk
 ---
 

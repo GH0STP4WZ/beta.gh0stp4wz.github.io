@@ -2,7 +2,7 @@
 title: First Blogpost!
 date: 2023-12-12
 themeColor: "#8a2be2"
-tags: ["personal", "meta"]
+tags: ["Personal"]
 layout: layouts/post.njk
 ---
 # My first blogpost, wow.

@@ -33,22 +33,57 @@ module.exports = (eleventyConfig) => {
         }),
     )
 
-    // Create tags collection for blog post tags (filtered to avoid system tags)
+    // Create tags collection for blog post tags - Fixed to prevent duplicates
     eleventyConfig.addCollection("tagList", (collectionApi) => {
-        const tagSet = new Set()
-        // Only get tags from actual blog posts, not from other templates
-        collectionApi.getFilteredByGlob("src/posts/*.md").forEach((item) => {
-            if (item.data.tags) {
-                item.data.tags
-                    .filter(tag => {
-                        // Filter out system tags that shouldn't have tag pages
-                        const systemTags = ['all', 'nav', 'post', 'posts', 'page', 'pages'];
-                        return !systemTags.includes(tag) && typeof tag === 'string';
-                    })
-                    .forEach((tag) => tagSet.add(tag))
+        const tagMap = new Map() // Use Map to track original case
+        collectionApi.getAll().forEach((item) => {
+            if (item.data.tags && Array.isArray(item.data.tags)) {
+                item.data.tags.forEach((tag) => {
+                    const normalizedTag = tag.toString().trim()
+                    if (normalizedTag) {
+                        const lowerTag = normalizedTag.toLowerCase()
+                        // Keep the first occurrence's case (prefer lowercase if it exists)
+                        if (!tagMap.has(lowerTag)) {
+                            tagMap.set(lowerTag, normalizedTag)
+                        } else if (normalizedTag === lowerTag) {
+                            // If we find a lowercase version, prefer it
+                            tagMap.set(lowerTag, normalizedTag)
+                        }
+                    }
+                })
             }
         })
-        return Array.from(tagSet).sort()
+        return Array.from(tagMap.values()).sort()
+    })
+
+    // Create normalized tag collections (case-insensitive)
+    eleventyConfig.addCollection("tagCollections", (collectionApi) => {
+        const tagCollections = {}
+
+        collectionApi.getAll().forEach((item) => {
+            if (item.data.tags && Array.isArray(item.data.tags)) {
+                item.data.tags.forEach((tag) => {
+                    const normalizedTag = tag.toString().trim().toLowerCase()
+                    if (normalizedTag) {
+                        if (!tagCollections[normalizedTag]) {
+                            tagCollections[normalizedTag] = []
+                        }
+                        tagCollections[normalizedTag].push(item)
+                    }
+                })
+            }
+        })
+
+        return tagCollections
+    })
+
+    // Add date filter for formatting dates
+    eleventyConfig.addFilter("date", (date, format) => {
+        const d = new Date(date)
+        if (format === "Y-m-d") {
+            return d.toISOString().split("T")[0]
+        }
+        return d.toISOString()
     })
 
     // Add date filter for formatting dates
@@ -60,18 +95,24 @@ module.exports = (eleventyConfig) => {
         }),
     )
 
-    eleventyConfig.addFilter("date", function(dateObj, format) {
-        const date = new Date(dateObj);
-        if (format === 'Y-m-d') {
-            return date.toISOString().split('T')[0]; // Returns YYYY-MM-DD
-        }
-        return date.toISOString().split('T')[0]; // Default to YYYY-MM-DD
-    });
-
     // Add excerpt filter for post previews
     eleventyConfig.addFilter("excerpt", (content) => {
+        if (!content) return ""
         const excerpt = content.replace(/<[^>]*>/g, "").substring(0, 200)
         return excerpt + (excerpt.length >= 200 ? "..." : "")
+    })
+
+    // Fixed slugify filter to be more robust and consistent
+    eleventyConfig.addFilter("slugify", (str) => {
+        if (!str) return ""
+        return str
+            .toString()
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, "") // Remove special chars except spaces and hyphens
+            .replace(/\s+/g, "-") // Replace spaces with hyphens
+            .replace(/-+/g, "-") // Replace multiple hyphens with single
+            .replace(/^-+|-+$/g, "") // Remove leading/trailing hyphens
     })
 
     // Set custom directories for input, output, includes, and data

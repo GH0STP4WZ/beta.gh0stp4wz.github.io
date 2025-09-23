@@ -2,7 +2,7 @@
 title: Changes
 date: 2024-09-23
 themeColor: "#8a2be2"
-tags: ["personal", "self-improvement", "mental-health"]
+tags: ["Personal", "Mental Health"]
 layout: layouts/post.njk
 ---
 Yeah...

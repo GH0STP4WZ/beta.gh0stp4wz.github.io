@@ -2,7 +2,7 @@
 title: 🎂It Muh Cake Day🎂
 date: 2024-06-20
 themeColor: "#8a2be2"
-tags: ["personal", "birthday"]
+tags: ["Personal"]
 layout: layouts/post.njk
 ---
 ### 🎂IT MUH CAKE DAY🎂

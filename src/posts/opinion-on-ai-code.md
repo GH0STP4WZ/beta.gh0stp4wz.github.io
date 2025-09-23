@@ -2,7 +2,7 @@
 title: My opinion on AI code
 date: 2025-03-17
 themeColor: "#8a2be2"
-tags: ["tech", "ai", "programming", "opinion"]
+tags: ["Programming", "Rant"]
 layout: layouts/post.njk
 ---
 

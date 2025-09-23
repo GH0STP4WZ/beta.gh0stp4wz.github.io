@@ -2,7 +2,7 @@
 title: Dealing with Stuff.
 date: 2024-04-17
 themeColor: "#8a2be2"
-tags: ["personal", "mental-health", "relationships"]
+tags: ["Personal", "Mental Health"]
 layout: layouts/post.njk
 ---
 # Dealing with Stuff.

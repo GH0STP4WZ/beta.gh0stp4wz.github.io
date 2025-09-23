@@ -2,7 +2,7 @@
 title: The Switch 2
 date: 2025-04-20
 themeColor: "#8a2be2"
-tags: ["gaming", "nintendo", "opinion", "tech"]
+tags: ["Gaming", "Tech", "Rant"]
 layout: layouts/post.njk
 ---
 
