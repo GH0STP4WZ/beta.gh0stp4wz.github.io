@@ -9,7 +9,9 @@
     "debug": "DEBUG=* eleventy"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-fetch": "^5.1.0",
+    "js-yaml": "^4.1.0"
   },
   "dependencies": {
     "markdown-it": "^13.0.2",

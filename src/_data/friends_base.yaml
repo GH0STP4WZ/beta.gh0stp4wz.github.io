@@ -1,0 +1,42 @@
+- name: "TheFaey"
+  url: "https://faey.net"
+  quote: "No Quote was Given"
+  avatar: "/assets/images/placeholders/avatar.png"
+
+- name: "EnkDev"
+  url: "https://enkdev.xyz"
+  quote: "\"Can you smell what the rock is cooking?\""
+  avatar: "https://enkdev.xyz/img/enkdev_logoDefault.png"
+
+- Name: "ToadetteHackFan"
+  url: "https://github.com/ToadetteHackFan"
+
+- name: "YoshiMitchell"
+  url: "https://github.com/Mister-Yoshi"
+
+- name: "Luxploit"
+  url: "https://luxploit.net"
+  quote: "\"we will engineer our way to thy orgasm\""
+  avatar: "https://luxploit.net/images/pfp.png"
+
+- name: "NeoUmbreon"
+  url: "https://neoumbreon.com"
+  quote: "No Quote was Given"
+  avatar: "https://neoumbreon.com/media/favicon.ico"
+
+- name: "Notiphiliac"
+  url: "https://github.com/notiphiliac"
+
+- name: "Zrodevkaan"
+  url: "https://github.com/zrodevkaan/"
+
+
+- name: "Inkstray"
+  url: "https://inkstray.neocities.org"
+  quote: "No Quote was Given"
+  avatar: "/assets/images/placeholders/avatar.png"
+
+- name: "Heretical Aeris!"
+  url: "https://hereticalproductions.net/home.html"
+  quote: "\"Bark.\""
+  avatar: "https://hereticalproductions.net/images/aeriscasual.gif"
