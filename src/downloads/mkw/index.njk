@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: Downloads
-subtitle: Tools, mods, and resources I've created
+title: Mario Kart Wii Downloads
+subtitle: My Mario Kart Wii Mods and the Toolchain used to make them.
 ---
 
 {% include "components/page-header.njk" %}
@@ -12,23 +12,29 @@ subtitle: Tools, mods, and resources I've created
             <div class="download-item card">
                 <div class="download-header">
                     <div class="download-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-                        </svg>
+                        <img src="https://avatars.githubusercontent.com/u/214893295">
                     </div>
                     <div class="download-info">
-                        <h3>BetterDiscord Stuff</h3>
-                        <p class="download-description">Collection of Items I've made for BetterDiscord</p>
+                        <h3>IKW Manager</h3>
+                        <p class="download-description">Download, Manage, and optionally launch directly into Insane Kart Wii!</p>
                         <div class="download-meta">
+                            <span class="file-size">???</span>
+                            <span class="file-type">???</span>
                         </div>
                     </div>
                 </div>
                 <div class="download-actions">
                     <a href="#" class="download-btn btn-hover">
                         <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"/>
+                            <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
                         </svg>
-                        Browse
+                        Download
+                    </a>
+                    <a href="#" class="download-btn btn-hover">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22,18V22H18V19H15V16H12L9.74,13.74C9.19,13.91 8.61,14 8,14A6,6 0 0,1 2,8A6,6 0 0,1 8,2A6,6 0 0,1 14,8C14,8.61 13.91,9.19 13.74,9.74L22,18M7,5A2,2 0 0,0 5,7A2,2 0 0,0 7,9A2,2 0 0,0 9,7A2,2 0 0,0 7,5Z"/>
+                        </svg>
+                        Beta Access
                     </a>
                 </div>
             </div>
@@ -48,7 +54,7 @@ subtitle: Tools, mods, and resources I've created
                     </div>
                 </div>
                 <div class="download-actions">
-                    <a href="./mkw" class="download-btn btn-hover">
+                    <a href="#" class="download-btn btn-hover">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"/>
                         </svg>
@@ -94,7 +100,7 @@ subtitle: Tools, mods, and resources I've created
     flex: 1;
 }
 
-.download-icon {
+.download-icon, .download-icon img {
     width: 60px;
     height: 60px;
     background: var(--primary-dim);
@@ -137,12 +143,15 @@ subtitle: Tools, mods, and resources I've created
 
 .download-actions {
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 .download-btn {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1.5rem;
     background: var(--primary);
     color: white;
     padding: 0.75rem 1.5rem;
@@ -156,6 +165,7 @@ subtitle: Tools, mods, and resources I've created
     background: var(--primary-bright);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(243, 139, 168, 0.3);
+    color: var(--base)
 }
 
 .download-btn svg {
