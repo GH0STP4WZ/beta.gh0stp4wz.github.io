@@ -2,151 +2,90 @@
 layout: base.njk
 title: LIGHTS OUT!
 subtitle: A Simple Browser Game where the goal is to make the lights go out.
+
 ---
 
 {% include "components/page-header.njk" %}
-<!-- Lights Out game embedded. Styles are scoped to .lights-out so the page layout isn't affected -->
+<!-- Lights Out: clean start screen + multi-size implementation -->
 <style>
 /* Catppuccin mocha-inspired scoped palette */
 .lights-out {
-	--bg: #1e1e2e; /* deep mocha */
+	--bg: #1e1e2e;
 	--panel: #26233a;
 	--muted: #6e6a86;
 	--text: #e6e1ff;
-	--accent: #f28fad; /* red-ish accent */
-	--on: #f6c177; /* yellow for ON tiles */
-	--off: #0f1720; /* dark for OFF tiles */
+	--accent: #f28fad;
+	--on: #f6c177;
+	--off: #0f1720;
 }
-
-.lights-out .container {
+.lights-out .container{
 	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
-	border: 1px solid rgba(255,255,255,0.03);
-	padding: 1rem;
-	border-radius: 10px;
-	color: var(--text);
-	max-width: 460px;
-	margin: 0.5rem auto 2rem;
+	border:1px solid rgba(255,255,255,0.03);
+	padding:1rem;
+	border-radius:10px;
+	color:var(--text);
+	max-width:520px;
+	margin:0.5rem auto 2rem;
 }
-
-.lights-out .top-row {
-	display:flex;
-	align-items:center;
-	justify-content:space-between;
-	gap: 0.5rem;
-	margin-bottom: 0.75rem;
-}
-
-.lights-out .counters {
-	display:flex;
-	gap: 0.75rem;
-	align-items:center;
-	font-size:0.95rem;
-}
-
-.lights-out .controls {
-	display:flex;
-	gap:0.5rem;
-}
-
-.lights-out button.btn {
-	background: transparent;
-	color: var(--text);
-	border: 1px solid rgba(255,255,255,0.06);
-	padding: 0.35rem 0.6rem;
+.lights-out .top-row{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.75rem}
+.lights-out .mode-btn{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.04);padding:.3rem .45rem;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.lights-out .mode-btn svg{width:18px;height:18px;display:block}
+.lights-out .counters{display:flex;gap:.75rem;align-items:center;font-size:.95rem}
+.lights-out .controls{display:flex;gap:.5rem}
+.lights-out button.btn{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.06);padding:.35rem .6rem;border-radius:6px;cursor:pointer;font-weight:600}
+.lights-out button.btn.primary{background:linear-gradient(180deg, rgba(242,143,173,0.12), rgba(242,143,173,0.06));border-color:rgba(242,143,173,0.18)}
+.lights-out .grid{display:grid;grid-template-columns:repeat(var(--n,3), var(--tile-size,88px));gap:var(--gap,8px);margin-top:.6rem;justify-content:center}
+.lights-out .tile{width:var(--tile-size,88px);height:var(--tile-size,88px);display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:1.1rem;cursor:pointer;user-select:none;transition:transform .08s ease,box-shadow .08s ease;border:1px solid rgba(255,255,255,0.03)}
+.lights-out .tile:active{transform:scale(.98)}
+.lights-out .tile.on{background:linear-gradient(180deg, rgba(246,193,119,0.12), rgba(246,193,119,0.06));box-shadow:0 4px 10px rgba(246,193,119,0.06);color:var(--bg);background-color:var(--on)}
+.lights-out .tile.off{background:linear-gradient(180deg, rgba(15,23,32,0.6), rgba(15,23,32,0.8));color:var(--muted);background-color:var(--off)}
+.lights-out .tile.hint{background: linear-gradient(180deg, rgba(242,143,173,0.88), rgba(242,143,173,0.60));box-shadow: 0 6px 18px rgba(242,143,173,0.35), inset 0 1px 0 rgba(255,255,255,0.03);color: var(--bg);transform: scale(1.03);border-color: rgba(242,143,173,0.28);}
+.lights-out .game-footer{
+	margin-top:.6rem;
+	padding:.6rem;
+	border:1px solid rgba(255,255,255,0.03);
 	border-radius:6px;
-	cursor:pointer;
-	font-weight:600;
-}
-
-.lights-out button.btn.primary {
-	background: linear-gradient(180deg, rgba(242,143,173,0.12), rgba(242,143,173,0.06));
-	border-color: rgba(242,143,173,0.18);
-}
-
-.lights-out .grid {
-	display:grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 0.45rem;
-	margin-top: 0.6rem;
-}
-
-.lights-out .tile {
-	aspect-ratio: 1/1;
-	display:flex;
-	align-items:center;
-	justify-content:center;
-	border-radius:8px;
-	font-size:1.35rem;
-	cursor:pointer;
-	user-select:none;
-	transition: transform .08s ease, box-shadow .08s ease;
-	border: 1px solid rgba(255,255,255,0.03);
-}
-
-.lights-out .tile:active{ transform: scale(.98); }
-
-.lights-out .tile.on {
-	background: linear-gradient(180deg, rgba(246,193,119,0.12), rgba(246,193,119,0.06));
-	box-shadow: 0 0px 50px rgba(246,193,119,1);
-	color: var(--bg);
-	background-color: var(--on);
-}
-
-.lights-out .tile.off {
-	background: linear-gradient(180deg, rgba(15,23,32,0.6), rgba(15,23,32,0.8));
-	color: var(--muted);
-	background-color: var(--off);
-}
-
-.lights-out .tile.hint {
-	outline: 3px solid rgba(242,143,173,0.25);
-	transform: scale(1.03);
-}
-
-.lights-out .game-footer {
-	margin-top:0.6rem;
-    padding:0.6rem;
-	font-size:0.85rem;
-	border-radius:10px;
-	color:var(--text);
-    background: var(--panel);
-	border: 1px solid rgba(255,255,255,0.03);
-}
-
-.lights-out .modal {
-	position:fixed;
-	inset:0;
-	display:flex;
-	align-items:center;
-	justify-content:center;
-	background: rgba(0,0,0,0.6);
-	z-index:9999;
-}
-
-.lights-out .modal .dialog {
 	background:var(--panel);
-	padding:1.25rem;
-	border-radius:10px;
-	width: min(420px, 92%);
-	color:var(--text);
-	border: 1px solid rgba(255,255,255,0.03);
+	font-size:.85rem;
+	color:var(--text)
 }
+.lights-out .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:9999}
+.lights-out .modal .dialog{background:var(--panel);padding:1.25rem;border-radius:10px;width:min(520px,92%);color:var(--text);border:1px solid rgba(255,255,255,0.03)}
+.lights-out .modal .dialog .actions{display:flex;justify-content:flex-end;gap:.5rem;margin-top:1rem}
 
-.lights-out .modal .dialog .actions{
-	display:flex;
-	justify-content:flex-end;
-	gap:0.5rem;
-	margin-top:1rem;
-}
+/* Start screen overlay */
+.lights-out .start-screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(10,10,12,0.6), rgba(0,0,0,0.6));z-index:9998}
+.lights-out .start-card{background:var(--panel);padding:1.25rem;border-radius:12px;min-width:280px;color:var(--text);border:1px solid rgba(255,255,255,0.03);text-align:center}
+.lights-out .difficulty{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-top:.75rem}
+.lights-out .difficulty button{min-width:110px}
 
-@media (max-width:600px){
-	.lights-out .container{ padding:0.75rem }
-}
+@media (max-width:600px){.lights-out .container{padding:.75rem}.lights-out .tile{font-size:.9rem}}
+
 </style>
 
 <div class="lights-out">
+	<!-- Start screen -->
+	<div id="startScreen" class="start-screen">
+		<div class="start-card">
+			<h2>Lights Out</h2>
+			<p>Turn all the lights OFF. Choose a difficulty to start.</p>
+			<div class="difficulty">
+				<button type="button" id="classicBtn" class="btn primary">Classic (3×3)</button>
+				<button type="button" id="expertBtn" class="btn">Expert (7×7)</button>
+				<button type="button" id="masterBtn" class="btn">Master (10×10)</button>
+			</div>
+			<div style="margin-top:.6rem;color:var(--muted);font-size:.85rem">Hint uses a solver to suggest the next move.</div>
+		</div>
+	</div>
+
 	<div class="container">
 		<div class="top-row">
+			<button type="button" id="modeBtn" class="mode-btn" title="Choose mode">
+				<!-- left arrow icon -->
+				<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</button>
 			<div class="counters">
 				<div>Moves: <span id="moves">0</span></div>
 				<div>Time: <span id="time">0:00</span></div>
@@ -154,24 +93,17 @@ subtitle: A Simple Browser Game where the goal is to make the lights go out.
 			</div>
 
 			<div class="controls">
-				<button id="newBtn" class="btn primary">New</button>
-				<button id="resetBtn" class="btn">Reset</button>
-				<button id="hintBtn" class="btn">Hint</button>
+				<button type="button" id="newBtn" class="btn primary">New</button>
+				<button type="button" id="resetBtn" class="btn">Reset</button>
+				<button type="button" id="hintBtn" class="btn">Hint</button>
 			</div>
 		</div>
 
-		<div class="grid" role="grid" aria-label="Lights Out grid">
-			<!-- 9 tiles -->
-			{% for i in range(9) %}
-			<button class="tile off" data-index="{{ i }}" aria-label="Tile {{ i + 1 }}" role="gridcell"></button>
-			{% endfor %}
-		</div>
+		<div id="grid" class="grid" role="grid" aria-label="Lights Out grid" style="--n:3; --tile-size:88px; --gap:8px"></div>
 
 		<div class="game-footer">
-            <h3>How to Play:</h3>
-            Click one of the tiles to toggle it and its direct neighbors' power state.
-            Your goal is to to turn all tiles off.
-        </div>
+		<h3>How to Play:</h3>
+		Click one of the tiles to toggle it and its direct neighbors' power state. Your goal is to turn all tiles off.</div>
 	</div>
 
 	<!-- Win modal (hidden by default) -->
@@ -180,16 +112,20 @@ subtitle: A Simple Browser Game where the goal is to make the lights go out.
 			<h3>You won!</h3>
 			<p id="winSummary">Great job.</p>
 			<div class="actions">
-				<button id="modalNew" class="btn primary">New Game</button>
+				<button type="button" id="modalNew" class="btn primary">New Game</button>
 			</div>
 		</div>
 	</div>
 </div>
 
 <script>
-(() => {
-	// State as a 9-bit number (0..511). bit 0 is index 0 (top-left), bit 8 is bottom-right.
-	const tiles = Array.from(document.querySelectorAll('.lights-out .tile'));
+(function(){
+	// DOM refs
+	const startScreen = document.getElementById('startScreen');
+	const classicBtn = document.getElementById('classicBtn');
+	const expertBtn = document.getElementById('expertBtn');
+	const masterBtn = document.getElementById('masterBtn');
+	const gridEl = document.getElementById('grid');
 	const movesEl = document.getElementById('moves');
 	const timeEl = document.getElementById('time');
 	const hintsEl = document.getElementById('hints');
@@ -199,33 +135,64 @@ subtitle: A Simple Browser Game where the goal is to make the lights go out.
 	const winModal = document.getElementById('winModal');
 	const modalNew = document.getElementById('modalNew');
 	const winSummary = document.getElementById('winSummary');
+	const modeBtn = document.getElementById('modeBtn');
 
-	// Precompute toggle masks for each index
-	const masks = new Array(9).fill(0).map((_, idx) => {
-		const r = Math.floor(idx / 3), c = idx % 3;
-		const positions = [[r,c],[r-1,c],[r+1,c],[r,c-1],[r,c+1]];
-		return positions.reduce((m, [rr,cc]) => {
-			if (rr >=0 && rr<3 && cc>=0 && cc<3) return m | (1 << (rr*3 + cc));
-			return m;
-		}, 0);
-	});
+	// Game state
+	let size = 3;
+	let N = 9;
+	let state = null; // Uint8Array length N
+	let initialState = null;
+	let masks = []; // array of arrays of indices toggled by pressing index j
+	let tiles = []; // DOM elements
+	let moves = 0, hints = 0, seconds = 0, timer = null;
 
-	let initialState = 0;
-	let state = 0;
-	let moves = 0;
-	let hints = 0;
-	let timer = null;
-	let seconds = 0;
+	function formatTime(s){ const mm = Math.floor(s/60); const ss = s%60; return `${mm}:${ss.toString().padStart(2,'0')}` }
 
-	function formatTime(s){
-		const mm = Math.floor(s/60);
-		const ss = s % 60;
-		return `${mm}:${ss.toString().padStart(2,'0')}`;
+	function makeMasks(sz){
+		const arr = [];
+		for (let idx=0; idx<sz*sz; idx++){
+			const r = Math.floor(idx/sz), c = idx%sz;
+			const positions = [[r,c],[r-1,c],[r+1,c],[r,c-1],[r,c+1]];
+			const list = [];
+			positions.forEach(([rr,cc])=>{ if (rr>=0 && rr<sz && cc>=0 && cc<sz) list.push(rr*sz + cc); });
+			arr.push(list);
+		}
+		return arr;
+	}
+
+	function createGrid(sz){
+		// cleanup
+		gridEl.innerHTML = '';
+		size = sz; N = sz*sz;
+		masks = makeMasks(sz);
+		tiles = [];
+		gridEl.style.setProperty('--n', String(sz));
+		// compute tile size so grid fits within container
+		const containerWidth = Math.min(document.querySelector('.lights-out .container').clientWidth, 520);
+		const gap = 8; // matches CSS --gap
+		let tileSize = Math.floor((containerWidth - (sz-1)*gap) / sz);
+		// clamp tile sizes for readibility
+		const maxTile = 88; const minTile = 28;
+		tileSize = Math.max(minTile, Math.min(maxTile, tileSize));
+		gridEl.style.setProperty('--tile-size', tileSize + 'px');
+		gridEl.style.setProperty('--gap', gap + 'px');
+
+		for (let i=0;i<N;i++){
+			const btn = document.createElement('button');
+			btn.type = 'button';
+			btn.className = 'tile off';
+			btn.setAttribute('data-index', String(i));
+			btn.setAttribute('aria-label', `Tile ${i+1}`);
+			btn.setAttribute('role','gridcell');
+			btn.addEventListener('click', ()=> onTileClick(i));
+			gridEl.appendChild(btn);
+			tiles.push(btn);
+		}
 	}
 
 	function render(){
-		for (let i=0;i<9;i++){
-			const on = !!(state & (1<<i));
+		for (let i=0;i<N;i++){
+			const on = !!state[i];
 			const el = tiles[i];
 			el.classList.toggle('on', on);
 			el.classList.toggle('off', !on);
@@ -237,112 +204,208 @@ subtitle: A Simple Browser Game where the goal is to make the lights go out.
 	}
 
 	function randomState(){
-		// random non-zero state
-		let s = 0;
-		while(s === 0) s = Math.floor(Math.random()*512);
+		const s = new Uint8Array(N);
+		let any = false;
+		for (let i=0;i<N;i++){ s[i] = Math.random() < 0.5 ? 1 : 0; if (s[i]) any = true; }
+		if (!any){ s[Math.floor(Math.random()*N)] = 1; }
 		return s;
 	}
 
-	function applyMove(idx){
-		state = state ^ masks[idx];
-		moves++;
-		if (moves === 1) startTimer();
+	function copyState(arr){ return new Uint8Array(arr) }
+
+	function applyMove(idx, doCount=true){
+		masks[idx].forEach(i=> state[i] = state[i] ? 0 : 1);
+		if (doCount){ moves++; if (moves===1) startTimer(); }
 		render();
-		if (state === 0) win();
+		if (isWin()) win();
 	}
 
-	function startTimer(){
-		if (timer) return;
-		timer = setInterval(()=>{ seconds++; render(); }, 1000);
+	function isWin(){
+		for (let i=0;i<N;i++) if (state[i]) return false; return true;
 	}
+
+	function startTimer(){ if (timer) return; timer = setInterval(()=>{ seconds++; render(); }, 1000); }
 	function stopTimer(){ if (timer){ clearInterval(timer); timer = null; } }
 	function resetTimer(){ stopTimer(); seconds = 0; render(); }
 
-	// BFS solver to find shortest path from current state to zero state. Returns array of moves indices.
-	function solveFrom(s){
-		const target = 0;
-		if (s === target) return [];
-		const queue = [s];
-		const prev = new Map();
-		prev.set(s, -1);
-		const moveFrom = new Map();
-		for (let qi=0; qi<queue.length; qi++){
-			const cur = queue[qi];
-			for (let m=0;m<9;m++){
-				const nxt = cur ^ masks[m];
-				if (!prev.has(nxt)){
-					prev.set(nxt, cur);
-					moveFrom.set(nxt, m);
-					if (nxt === target){
-						// build path
-						const path = [];
-						let node = nxt;
-						while(prev.get(node) !== -1){ path.unshift(moveFrom.get(node)); node = prev.get(node); }
-						return path;
-					}
-					queue.push(nxt);
+	// GF(2) solver using Gaussian elimination. Returns solution array of 0/1 of length N or null if no solution.
+	function solveGF2(){
+		// Build augmented matrix: rows = N, cols = N+1
+		const mat = new Array(N);
+		for (let r=0;r<N;r++){
+			const row = new Uint8Array(N+1);
+			// For each column (press position) j, if pressing j toggles r, set row[j]=1
+			for (let j=0;j<N;j++){
+				if (masks[j].indexOf(r) !== -1) row[j] = 1;
+			}
+			row[N] = state[r];
+			mat[r] = row;
+		}
+
+		let row = 0;
+		const where = new Array(N).fill(-1);
+		for (let col=0; col<N && row<N; col++){
+			// find pivot
+			let sel = -1;
+			for (let i=row;i<N;i++) if (mat[i][col]){ sel = i; break; }
+			if (sel === -1) continue;
+			// swap
+			const tmp = mat[sel]; mat[sel] = mat[row]; mat[row] = tmp;
+			where[col] = row;
+			// eliminate other rows
+			for (let i=0;i<N;i++){
+				if (i !== row && mat[i][col]){
+					// row_i ^= row_row
+					for (let j=col;j<=N;j++) mat[i][j] ^= mat[row][j];
 				}
 			}
+			row++;
 		}
-		return null;
+
+		// check consistency
+		for (let i=row;i<N;i++){
+			let allzero = true;
+			for (let j=0;j<N;j++) if (mat[i][j]){ allzero = false; break; }
+			if (allzero && mat[i][N]) return null; // no solution
+		}
+
+		const x = new Uint8Array(N);
+		for (let i=0;i<N;i++) x[i]=0;
+		// back substitution: for each variable
+		for (let i=0;i<N;i++){
+			if (where[i] !== -1){
+				let r = where[i];
+				let val = mat[r][N];
+				for (let j=i+1;j<N;j++) if (mat[r][j]) val ^= x[j];
+				x[i] = val;
+			} else {
+				x[i] = 0; // free variable choose 0
+			}
+		}
+		return x;
 	}
 
 	function showHint(){
-		const path = solveFrom(state);
-		if (!path || path.length === 0) return null; // no hint or already solved
-		const idx = path[0];
-		// highlight tile
-		const el = tiles[idx];
+		const sol = solveGF2();
+		if (!sol) return null;
+		// collect candidate indices from the solver
+		const candidates = [];
+		for (let i=0;i<N;i++) if (sol[i]) candidates.push(i);
+		if (candidates.length === 0) return null; // nothing to do
+
+		// prefer a candidate that reduces the number of lit tiles
+		function litCount(arr){ let c=0; for (let k=0;k<arr.length;k++) if (arr[k]) c++; return c; }
+		const curCount = litCount(state);
+		let best = candidates[0];
+		let bestCount = curCount;
+		for (const cand of candidates){
+			// simulate applying cand
+			const copy = new Uint8Array(state);
+			masks[cand].forEach(i => copy[i] = copy[i] ? 0 : 1);
+			const ccount = litCount(copy);
+			// prefer strictly decreasing the lit count
+			if (ccount < bestCount){ bestCount = ccount; best = cand; }
+		}
+		// if none improved the lit count, fallback to first solver move (best already candidates[0])
+
+		const el = tiles[best];
 		el.classList.add('hint');
 		setTimeout(()=> el.classList.remove('hint'), 1400);
 		hints++;
 		render();
-		return idx;
+		return best;
+	}
+
+	// Greedy single-tile chooser: pick a tile whose toggle strictly reduces lit count.
+	function pickGreedyMove(){
+		function litCount(arr){ let c=0; for (let k=0;k<arr.length;k++) if (arr[k]) c++; return c; }
+		const cur = litCount(state);
+		let best = -1;
+		let bestCount = cur;
+		for (let i=0;i<N;i++){
+			const copy = new Uint8Array(state);
+			masks[i].forEach(j => copy[j] = copy[j] ? 0 : 1);
+			const c = litCount(copy);
+			if (c < bestCount){ bestCount = c; best = i; }
+		}
+		return best === -1 ? null : best;
 	}
 
 	function win(){
 		stopTimer();
-		// show modal
 		winSummary.textContent = `You won in ${moves} moves, time ${formatTime(seconds)}, using ${hints} hint${hints===1?'':'s' }.`;
 		winModal.style.display = 'flex';
 	}
 
-	// Button wiring
-	tiles.forEach((t, idx) => {
-		t.addEventListener('click', ()=> applyMove(idx));
-	});
+	// Event handlers
+	function onTileClick(i){ applyMove(i, true); }
 
 	newBtn.addEventListener('click', ()=>{
 		state = randomState();
-		initialState = state;
+		initialState = copyState(state);
 		moves = 0; hints = 0; seconds = 0;
-		resetTimer();
-		render();
+		resetTimer(); render();
 	});
 
 	resetBtn.addEventListener('click', ()=>{
-		state = initialState;
-		moves = 0; hints = 0; seconds = 0;
-		resetTimer();
-		render();
+		if (!initialState) return;
+		state = copyState(initialState);
+		moves = 0; hints = 0; seconds = 0; resetTimer(); render();
 	});
 
 	hintBtn.addEventListener('click', ()=>{
 		const idx = showHint();
-		// if no path and not solved, briefly flash all tiles to indicate no solution
-		if (idx === null && state !== 0){
-			tiles.forEach(el => el.classList.add('hint'));
-			setTimeout(()=> tiles.forEach(el=> el.classList.remove('hint')), 600);
+		if (idx === null && !isWin()){
+			// Solver had no solution (or solver produced no moves). Pick a greedy single-tile suggestion instead.
+			const greedy = pickGreedyMove();
+			if (greedy !== null){
+				const el = tiles[greedy];
+				el.classList.add('hint');
+				setTimeout(()=> el.classList.remove('hint'), 600);
+				hints++;
+				render();
+			} else {
+				// fallback visual feedback: brief flash of all tiles
+				tiles.forEach(el => el.classList.add('hint'));
+				setTimeout(()=> tiles.forEach(el=> el.classList.remove('hint')), 600);
+			}
 		}
 	});
 
-	modalNew.addEventListener('click', ()=>{
-		winModal.style.display = 'none';
-		newBtn.click();
+	modalNew.addEventListener('click', ()=>{ winModal.style.display = 'none'; newBtn.click(); });
+
+	// Mode selector button: show the start screen and pause the game
+	modeBtn.addEventListener('click', ()=>{
+		stopTimer();
+		startScreen.style.display = '';
 	});
 
-	// Initialize game
-	(function init(){ state = randomState(); initialState = state; moves = 0; hints = 0; seconds = 0; render(); })();
+	// Difficulty buttons
+	function startWithSize(sz){
+		createGrid(sz);
+		state = randomState(); initialState = copyState(state);
+		moves = 0; hints = 0; seconds = 0; resetTimer(); render();
+		startScreen.style.display = 'none';
+	}
+	classicBtn.addEventListener('click', ()=> startWithSize(3));
+	expertBtn.addEventListener('click', ()=> startWithSize(7));
+	masterBtn.addEventListener('click', ()=> startWithSize(10));
+
+	// initialize default at 3x3 but show start screen
+	createGrid(3);
+	state = randomState(); initialState = copyState(state); render();
+
+	// expose resize handler so grid tile size stays reasonable
+	window.addEventListener('resize', ()=>{
+		// recompute tile size when window resizes
+		if (!gridEl) return;
+		const containerWidth = Math.min(document.querySelector('.lights-out .container').clientWidth, 520);
+		const gap = 8;
+		let tileSize = Math.floor((containerWidth - (size-1)*gap) / size);
+		const maxTile = 88; const minTile = 28;
+		tileSize = Math.max(minTile, Math.min(maxTile, tileSize));
+		gridEl.style.setProperty('--tile-size', tileSize + 'px');
+	});
 
 })();
 </script>
