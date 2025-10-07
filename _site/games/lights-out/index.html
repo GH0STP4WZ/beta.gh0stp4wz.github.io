@@ -258,7 +258,7 @@
 .lights-out .grid{display:grid;grid-template-columns:repeat(var(--n,3), var(--tile-size,88px));gap:var(--gap,8px);margin-top:.6rem;justify-content:center}
 .lights-out .tile{width:var(--tile-size,88px);height:var(--tile-size,88px);display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:1.1rem;cursor:pointer;user-select:none;transition:transform .08s ease,box-shadow .08s ease;border:1px solid rgba(255,255,255,0.03)}
 .lights-out .tile:active{transform:scale(.98)}
-.lights-out .tile.on{background:linear-gradient(180deg, rgba(246,193,119,0.12), rgba(246,193,119,0.06));box-shadow:0 4px 10px rgba(246,193,119,0.06);color:var(--bg);background-color:var(--on)}
+.lights-out .tile.on{background:linear-gradient(180deg, rgba(246,193,119,0.12), rgba(246,193,119,0.06));box-shadow:0 0 30px rgba(246,193,119,0.86);color:var(--bg);background-color:var(--on)}
 .lights-out .tile.off{background:linear-gradient(180deg, rgba(15,23,32,0.6), rgba(15,23,32,0.8));color:var(--muted);background-color:var(--off)}
 .lights-out .tile.hint{background: linear-gradient(180deg, rgba(242,143,173,0.88), rgba(242,143,173,0.60));box-shadow: 0 6px 18px rgba(242,143,173,0.35), inset 0 1px 0 rgba(255,255,255,0.03);color: var(--bg);transform: scale(1.03);border-color: rgba(242,143,173,0.28);}
 .lights-out .game-footer{
