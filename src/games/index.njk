@@ -1,0 +1,113 @@
+---
+layout: base.njk
+title: Games
+subtitle: Some Silly Games I like
+---
+
+{% include "components/page-header.njk" %}
+
+<div class="games-page">
+    <div class="container">
+        <div class="games-grid">
+            <div class="games-item card">
+                <div class="games-header">
+                    <h3>LIGHTS OUT!</h3>
+                    <p>A Simple Browser Game where the goal is to make the lights go out.</p>
+                </div>
+                <div class="LO-demo">
+                    <pre class="LO-table">
+🟨🟨⬛
+🟨⬛⬛
+⬛⬛🟨
+                    </pre>
+                </div>
+                <a href="/games/lights-out/" class="games-btn" role="button">Play Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.games-page {
+    padding-bottom: 3rem;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.games-item {
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.games-item:hover {
+    border-color: var(--primary-dim);
+    transform: translateY(-5px);
+}
+
+.games-header {
+    margin-bottom: 1.5rem;
+}
+
+.games-header h3 {
+    color: var(--primary-bright);
+    margin-bottom: 0.5rem;
+}
+
+.games-header p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.LO-demo {
+    margin-bottom: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--surface-hover);
+    border-radius: 8px;
+    width: fit-content;
+    padding: 1rem
+    overflow-x: auto;
+}
+
+.LO-table {
+    padding-top: 1.5rem;
+    color: var(--primary);
+    font-size: 1.6rem;
+    line-height: 1;
+    margin: 0;
+    white-space: pre;
+}
+
+.games-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.games-btn:hover {
+    background: var(--primary-bright);
+    transform: translateY(-2px);
+    color: white;
+    box-shadow: 0 5px 15px rgba(243, 139, 168, 0.3);
+}
+
+@media (max-width: 768px) {
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .LO-table {
+        font-size: 0.5rem;
+    }
+}
+</style>
