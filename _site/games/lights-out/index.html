@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIGHTS OUT! - GH0STP4WZ</title>
+    <meta name="description" content="Personal website of Aurora Dess (GH0STP4WZ) - Demi-Girl, Developer, and Community Moderator">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <nav class="navigation">
+    <div class="container">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <a href="/" class="brand-link">
+                    <span class="brand-text">GH0STP4WZ</span>
+                </a>
+            </div>
+            
+            <div class="nav-tabs">
+                <a href="/" class="nav-tab ">
+                    Home
+                </a>
+                <a href="/links/" class="nav-tab ">
+                    Links
+                </a>
+                <a href="/downloads/" class="nav-tab ">
+                    Downloads
+                </a>
+                <a href="/blog/" class="nav-tab ">
+                    Blog
+                </a>
+                <a href="/games/" class="nav-tab active">
+                    Games
+                </a>
+                <a href="/misc/" class="nav-tab ">
+                    Misc
+                </a>
+                <!-- External link example -->
+                <a href="https://your-other-website.com" class="nav-tab external" target="_blank" rel="noopener">
+                    External
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15,3 21,3 21,9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<style>
+.navigation {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.brand-link {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.brand-text {
+    background: linear-gradient(45deg, var(--primary), var(--primary-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-tab {
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-tab:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+    transform: translateY(-1px);
+}
+
+.nav-tab.active {
+    background: var(--primary-dim);
+    color: var(--primary-bright);
+}
+
+.nav-tab.external .external-icon {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.nav-tab.external:hover .external-icon {
+    opacity: 1;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 3px;
+}
+
+.mobile-menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: var(--text);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .nav-tabs {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Mobile menu styles would go here */
+}
+</style>
+
+    
+    <main class="fade-in">
+        
+<header class="page-header slide-up">
+    <div class="container">
+        <div class="header-content">
+            
+            <h1 class="page-title">LIGHTS OUT!</h1>
+            
+            <p class="page-subtitle">A Simple Browser Game where the goal is to make the lights go out.</p>
+            
+        </div>
+    </div>
+</header>
+
+<style>
+.page-header {
+    padding: 3rem 0 2rem;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+.header-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary), var(--primary-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        padding: 2rem 0 1.5rem;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+    }
+}
+</style>
+
+<!-- Lights Out game embedded. Styles are scoped to .lights-out so the page layout isn't affected -->
+<style>
+/* Catppuccin mocha-inspired scoped palette */
+.lights-out {
+	--bg: #1e1e2e; /* deep mocha */
+	--panel: #26233a;
+	--muted: #6e6a86;
+	--text: #e6e1ff;
+	--accent: #f28fad; /* red-ish accent */
+	--on: #f6c177; /* yellow for ON tiles */
+	--off: #0f1720; /* dark for OFF tiles */
+}
+
+.lights-out .container {
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+	border: 1px solid rgba(255,255,255,0.03);
+	padding: 1rem;
+	border-radius: 10px;
+	color: var(--text);
+	max-width: 460px;
+	margin: 0.5rem auto 2rem;
+}
+
+.lights-out .top-row {
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	gap: 0.5rem;
+	margin-bottom: 0.75rem;
+}
+
+.lights-out .counters {
+	display:flex;
+	gap: 0.75rem;
+	align-items:center;
+	font-size:0.95rem;
+}
+
+.lights-out .controls {
+	display:flex;
+	gap:0.5rem;
+}
+
+.lights-out button.btn {
+	background: transparent;
+	color: var(--text);
+	border: 1px solid rgba(255,255,255,0.06);
+	padding: 0.35rem 0.6rem;
+	border-radius:6px;
+	cursor:pointer;
+	font-weight:600;
+}
+
+.lights-out button.btn.primary {
+	background: linear-gradient(180deg, rgba(242,143,173,0.12), rgba(242,143,173,0.06));
+	border-color: rgba(242,143,173,0.18);
+}
+
+.lights-out .grid {
+	display:grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.45rem;
+	margin-top: 0.6rem;
+}
+
+.lights-out .tile {
+	aspect-ratio: 1/1;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	border-radius:8px;
+	font-size:1.35rem;
+	cursor:pointer;
+	user-select:none;
+	transition: transform .08s ease, box-shadow .08s ease;
+	border: 1px solid rgba(255,255,255,0.03);
+}
+
+.lights-out .tile:active{ transform: scale(.98); }
+
+.lights-out .tile.on {
+	background: linear-gradient(180deg, rgba(246,193,119,0.12), rgba(246,193,119,0.06));
+	box-shadow: 0 0px 50px rgba(246,193,119,1);
+	color: var(--bg);
+	background-color: var(--on);
+}
+
+.lights-out .tile.off {
+	background: linear-gradient(180deg, rgba(15,23,32,0.6), rgba(15,23,32,0.8));
+	color: var(--muted);
+	background-color: var(--off);
+}
+
+.lights-out .tile.hint {
+	outline: 3px solid rgba(242,143,173,0.25);
+	transform: scale(1.03);
+}
+
+.lights-out .game-footer {
+	margin-top:0.6rem;
+    padding:0.6rem;
+	font-size:0.85rem;
+	border-radius:10px;
+	color:var(--text);
+    background: var(--panel);
+	border: 1px solid rgba(255,255,255,0.03);
+}
+
+.lights-out .modal {
+	position:fixed;
+	inset:0;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	background: rgba(0,0,0,0.6);
+	z-index:9999;
+}
+
+.lights-out .modal .dialog {
+	background:var(--panel);
+	padding:1.25rem;
+	border-radius:10px;
+	width: min(420px, 92%);
+	color:var(--text);
+	border: 1px solid rgba(255,255,255,0.03);
+}
+
+.lights-out .modal .dialog .actions{
+	display:flex;
+	justify-content:flex-end;
+	gap:0.5rem;
+	margin-top:1rem;
+}
+
+@media (max-width:600px){
+	.lights-out .container{ padding:0.75rem }
+}
+</style>
+
+<div class="lights-out">
+	<div class="container">
+		<div class="top-row">
+			<div class="counters">
+				<div>Moves: <span id="moves">0</span></div>
+				<div>Time: <span id="time">0:00</span></div>
+				<div>Hints: <span id="hints">0</span></div>
+			</div>
+
+			<div class="controls">
+				<button id="newBtn" class="btn primary">New</button>
+				<button id="resetBtn" class="btn">Reset</button>
+				<button id="hintBtn" class="btn">Hint</button>
+			</div>
+		</div>
+
+		<div class="grid" role="grid" aria-label="Lights Out grid">
+			<!-- 9 tiles -->
+			
+			<button class="tile off" data-index="0" aria-label="Tile 1" role="gridcell"></button>
+			
+			<button class="tile off" data-index="1" aria-label="Tile 2" role="gridcell"></button>
+			
+			<button class="tile off" data-index="2" aria-label="Tile 3" role="gridcell"></button>
+			
+			<button class="tile off" data-index="3" aria-label="Tile 4" role="gridcell"></button>
+			
+			<button class="tile off" data-index="4" aria-label="Tile 5" role="gridcell"></button>
+			
+			<button class="tile off" data-index="5" aria-label="Tile 6" role="gridcell"></button>
+			
+			<button class="tile off" data-index="6" aria-label="Tile 7" role="gridcell"></button>
+			
+			<button class="tile off" data-index="7" aria-label="Tile 8" role="gridcell"></button>
+			
+			<button class="tile off" data-index="8" aria-label="Tile 9" role="gridcell"></button>
+			
+		</div>
+
+		<div class="game-footer">
+            <h3>How to Play:</h3>
+            Click one of the tiles to toggle it and its direct neighbors' power state.
+            Your goal is to to turn all tiles off.
+        </div>
+	</div>
+
+	<!-- Win modal (hidden by default) -->
+	<div id="winModal" class="modal" style="display:none;">
+		<div class="dialog">
+			<h3>You won!</h3>
+			<p id="winSummary">Great job.</p>
+			<div class="actions">
+				<button id="modalNew" class="btn primary">New Game</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+(() => {
+	// State as a 9-bit number (0..511). bit 0 is index 0 (top-left), bit 8 is bottom-right.
+	const tiles = Array.from(document.querySelectorAll('.lights-out .tile'));
+	const movesEl = document.getElementById('moves');
+	const timeEl = document.getElementById('time');
+	const hintsEl = document.getElementById('hints');
+	const newBtn = document.getElementById('newBtn');
+	const resetBtn = document.getElementById('resetBtn');
+	const hintBtn = document.getElementById('hintBtn');
+	const winModal = document.getElementById('winModal');
+	const modalNew = document.getElementById('modalNew');
+	const winSummary = document.getElementById('winSummary');
+
+	// Precompute toggle masks for each index
+	const masks = new Array(9).fill(0).map((_, idx) => {
+		const r = Math.floor(idx / 3), c = idx % 3;
+		const positions = [[r,c],[r-1,c],[r+1,c],[r,c-1],[r,c+1]];
+		return positions.reduce((m, [rr,cc]) => {
+			if (rr >=0 && rr<3 && cc>=0 && cc<3) return m | (1 << (rr*3 + cc));
+			return m;
+		}, 0);
+	});
+
+	let initialState = 0;
+	let state = 0;
+	let moves = 0;
+	let hints = 0;
+	let timer = null;
+	let seconds = 0;
+
+	function formatTime(s){
+		const mm = Math.floor(s/60);
+		const ss = s % 60;
+		return `${mm}:${ss.toString().padStart(2,'0')}`;
+	}
+
+	function render(){
+		for (let i=0;i<9;i++){
+			const on = !!(state & (1<<i));
+			const el = tiles[i];
+			el.classList.toggle('on', on);
+			el.classList.toggle('off', !on);
+			el.textContent = '';
+		}
+		movesEl.textContent = moves;
+		timeEl.textContent = formatTime(seconds);
+		hintsEl.textContent = hints;
+	}
+
+	function randomState(){
+		// random non-zero state
+		let s = 0;
+		while(s === 0) s = Math.floor(Math.random()*512);
+		return s;
+	}
+
+	function applyMove(idx){
+		state = state ^ masks[idx];
+		moves++;
+		if (moves === 1) startTimer();
+		render();
+		if (state === 0) win();
+	}
+
+	function startTimer(){
+		if (timer) return;
+		timer = setInterval(()=>{ seconds++; render(); }, 1000);
+	}
+	function stopTimer(){ if (timer){ clearInterval(timer); timer = null; } }
+	function resetTimer(){ stopTimer(); seconds = 0; render(); }
+
+	// BFS solver to find shortest path from current state to zero state. Returns array of moves indices.
+	function solveFrom(s){
+		const target = 0;
+		if (s === target) return [];
+		const queue = [s];
+		const prev = new Map();
+		prev.set(s, -1);
+		const moveFrom = new Map();
+		for (let qi=0; qi<queue.length; qi++){
+			const cur = queue[qi];
+			for (let m=0;m<9;m++){
+				const nxt = cur ^ masks[m];
+				if (!prev.has(nxt)){
+					prev.set(nxt, cur);
+					moveFrom.set(nxt, m);
+					if (nxt === target){
+						// build path
+						const path = [];
+						let node = nxt;
+						while(prev.get(node) !== -1){ path.unshift(moveFrom.get(node)); node = prev.get(node); }
+						return path;
+					}
+					queue.push(nxt);
+				}
+			}
+		}
+		return null;
+	}
+
+	function showHint(){
+		const path = solveFrom(state);
+		if (!path || path.length === 0) return null; // no hint or already solved
+		const idx = path[0];
+		// highlight tile
+		const el = tiles[idx];
+		el.classList.add('hint');
+		setTimeout(()=> el.classList.remove('hint'), 1400);
+		hints++;
+		render();
+		return idx;
+	}
+
+	function win(){
+		stopTimer();
+		// show modal
+		winSummary.textContent = `You won in ${moves} moves, time ${formatTime(seconds)}, using ${hints} hint${hints===1?'':'s' }.`;
+		winModal.style.display = 'flex';
+	}
+
+	// Button wiring
+	tiles.forEach((t, idx) => {
+		t.addEventListener('click', ()=> applyMove(idx));
+	});
+
+	newBtn.addEventListener('click', ()=>{
+		state = randomState();
+		initialState = state;
+		moves = 0; hints = 0; seconds = 0;
+		resetTimer();
+		render();
+	});
+
+	resetBtn.addEventListener('click', ()=>{
+		state = initialState;
+		moves = 0; hints = 0; seconds = 0;
+		resetTimer();
+		render();
+	});
+
+	hintBtn.addEventListener('click', ()=>{
+		const idx = showHint();
+		// if no path and not solved, briefly flash all tiles to indicate no solution
+		if (idx === null && state !== 0){
+			tiles.forEach(el => el.classList.add('hint'));
+			setTimeout(()=> tiles.forEach(el=> el.classList.remove('hint')), 600);
+		}
+	});
+
+	modalNew.addEventListener('click', ()=>{
+		winModal.style.display = 'none';
+		newBtn.click();
+	});
+
+	// Initialize game
+	(function init(){ state = randomState(); initialState = state; moves = 0; hints = 0; seconds = 0; render(); })();
+
+})();
+</script>
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p class="footer-text">
+                © 2025 Aurora "GH0STP4WZ" Hartman
+            </p>
+            <p class="footer-love">
+                Made with <span class="heart">❤️</span> and <span class="trans-flag">🏳️‍⚧️</span> rights
+            </p>
+        </div>
+    </div>
+</footer>
+
+<style>
+.footer {
+    margin-top: auto;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.footer-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-love {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.heart {
+    color: var(--primary);
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+.trans-flag {
+    filter: brightness(1.2);
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        font-size: 0.8rem;
+    }
+}
+</style>
+
+    
+    <script src="/js/main.js"></script>
+    <!-- Added animations script -->
+    <script src="/js/animations.js"></script>
+</body>
+</html>

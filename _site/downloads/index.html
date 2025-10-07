@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads - GH0STP4WZ</title>
+    <meta name="description" content="Personal website of Aurora Dess (GH0STP4WZ) - Demi-Girl, Developer, and Community Moderator">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <nav class="navigation">
+    <div class="container">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <a href="/" class="brand-link">
+                    <span class="brand-text">GH0STP4WZ</span>
+                </a>
+            </div>
+            
+            <div class="nav-tabs">
+                <a href="/" class="nav-tab ">
+                    Home
+                </a>
+                <a href="/links/" class="nav-tab ">
+                    Links
+                </a>
+                <a href="/downloads/" class="nav-tab active">
+                    Downloads
+                </a>
+                <a href="/blog/" class="nav-tab ">
+                    Blog
+                </a>
+                <a href="/games/" class="nav-tab ">
+                    Games
+                </a>
+                <a href="/misc/" class="nav-tab ">
+                    Misc
+                </a>
+                <!-- External link example -->
+                <a href="https://your-other-website.com" class="nav-tab external" target="_blank" rel="noopener">
+                    External
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15,3 21,3 21,9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<style>
+.navigation {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.brand-link {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.brand-text {
+    background: linear-gradient(45deg, var(--primary), var(--primary-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-tab {
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-tab:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+    transform: translateY(-1px);
+}
+
+.nav-tab.active {
+    background: var(--primary-dim);
+    color: var(--primary-bright);
+}
+
+.nav-tab.external .external-icon {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.nav-tab.external:hover .external-icon {
+    opacity: 1;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 3px;
+}
+
+.mobile-menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: var(--text);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .nav-tabs {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Mobile menu styles would go here */
+}
+</style>
+
+    
+    <main class="fade-in">
+        
+<header class="page-header slide-up">
+    <div class="container">
+        <div class="header-content">
+            
+            <h1 class="page-title">Downloads</h1>
+            
+            <p class="page-subtitle">Tools, mods, and resources I&#39;ve created</p>
+            
+        </div>
+    </div>
+</header>
+
+<style>
+.page-header {
+    padding: 3rem 0 2rem;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+.header-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary), var(--primary-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        padding: 2rem 0 1.5rem;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+    }
+}
+</style>
+
+
+<div class="downloads-page">
+    <div class="container">
+        <div class="downloads-grid">
+            <div class="download-item card">
+                <div class="download-header">
+                    <div class="download-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        </svg>
+                    </div>
+                    <div class="download-info">
+                        <h3>BetterDiscord Stuff</h3>
+                        <p class="download-description">Collection of Items I've made for BetterDiscord</p>
+                        <div class="download-meta">
+                        </div>
+                    </div>
+                </div>
+                <div class="download-actions">
+                    <a href="#" class="download-btn btn-hover">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"/>
+                        </svg>
+                        Browse
+                    </a>
+                </div>
+            </div>
+
+            <div class="download-item card">
+                <div class="download-header">
+                    <div class="download-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        </svg>
+                    </div>
+                    <div class="download-info">
+                        <h3>Mario Kart Wii Stuff</h3>
+                        <p class="download-description">My Mario Kart Wii Mods and the Toolchain used to make them.</p>
+                        <div class="download-meta">
+                        </div>
+                    </div>
+                </div>
+                <div class="download-actions">
+                    <a href="./mkw" class="download-btn btn-hover">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"/>
+                        </svg>
+                        Browse
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="download-notice card">
+            <h3>Download Notice</h3>
+            <p>All downloads are provided as-is. Please scan files with your antivirus before use. If you encounter any issues, feel free to contact me through the links page.</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.downloads-page {
+    padding-bottom: 3rem;
+}
+
+.downloads-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.download-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.download-item:hover {
+    border-color: var(--primary-dim);
+}
+
+.download-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.download-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-dim);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-bright);
+    flex-shrink: 0;
+}
+
+.download-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.download-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text);
+    font-size: 1.25rem;
+}
+
+.download-description {
+    margin: 0 0 0.75rem 0;
+    color: var(--text-muted);
+}
+
+.download-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+}
+
+.file-size, .file-type, .download-count {
+    color: var(--text-muted);
+    background: var(--surface-hover);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+.download-actions {
+    flex-shrink: 0;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background: var(--primary-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(243, 139, 168, 0.3);
+}
+
+.download-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.download-notice {
+    background: var(--surface-hover);
+    border-left: 4px solid var(--ctp-yellow);
+    padding: 1.5rem;
+}
+
+.download-notice h3 {
+    color: var(--ctp-yellow);
+    margin-bottom: 1rem;
+}
+
+.download-notice p {
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .download-item {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .download-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .download-meta {
+        justify-content: center;
+    }
+}
+</style>
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p class="footer-text">
+                © 2025 Aurora "GH0STP4WZ" Hartman
+            </p>
+            <p class="footer-love">
+                Made with <span class="heart">❤️</span> and <span class="trans-flag">🏳️‍⚧️</span> rights
+            </p>
+        </div>
+    </div>
+</footer>
+
+<style>
+.footer {
+    margin-top: auto;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.footer-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-love {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.heart {
+    color: var(--primary);
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+.trans-flag {
+    filter: brightness(1.2);
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        font-size: 0.8rem;
+    }
+}
+</style>
+
+    
+    <script src="/js/main.js"></script>
+    <!-- Added animations script -->
+    <script src="/js/animations.js"></script>
+</body>
+</html>

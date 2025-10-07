@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - GH0STP4WZ</title>
+    <meta name="description" content="Personal website of Aurora Dess (GH0STP4WZ) - Demi-Girl, Developer, and Community Moderator">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <nav class="navigation">
+    <div class="container">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <a href="/" class="brand-link">
+                    <span class="brand-text">GH0STP4WZ</span>
+                </a>
+            </div>
+            
+            <div class="nav-tabs">
+                <a href="/" class="nav-tab ">
+                    Home
+                </a>
+                <a href="/links/" class="nav-tab ">
+                    Links
+                </a>
+                <a href="/downloads/" class="nav-tab ">
+                    Downloads
+                </a>
+                <a href="/blog/" class="nav-tab active">
+                    Blog
+                </a>
+                <a href="/games/" class="nav-tab ">
+                    Games
+                </a>
+                <a href="/misc/" class="nav-tab ">
+                    Misc
+                </a>
+                <!-- External link example -->
+                <a href="https://your-other-website.com" class="nav-tab external" target="_blank" rel="noopener">
+                    External
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15,3 21,3 21,9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<style>
+.navigation {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.brand-link {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.brand-text {
+    background: linear-gradient(45deg, var(--primary), var(--primary-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-tab {
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-tab:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+    transform: translateY(-1px);
+}
+
+.nav-tab.active {
+    background: var(--primary-dim);
+    color: var(--primary-bright);
+}
+
+.nav-tab.external .external-icon {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.nav-tab.external:hover .external-icon {
+    opacity: 1;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 3px;
+}
+
+.mobile-menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: var(--text);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .nav-tabs {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Mobile menu styles would go here */
+}
+</style>
+
+    
+    <main class="fade-in">
+        
+<header class="page-header slide-up">
+    <div class="container">
+        <div class="header-content">
+            
+            <h1 class="page-title">Blog</h1>
+            
+            <p class="page-subtitle">This is where I ramble about things</p>
+            
+        </div>
+    </div>
+</header>
+
+<style>
+.page-header {
+    padding: 3rem 0 2rem;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+.header-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary), var(--primary-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        padding: 2rem 0 1.5rem;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+    }
+}
+</style>
+
+
+<div class="blog-page">
+    <div class="container">
+        <div class="blog-grid">
+            
+            <article class="blog-post card">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <time datetime="2025-09-22">September 22, 2025</time>
+                        
+                        <div class="post-category-tags">
+                            
+                        </div>
+                        
+                    </div>
+                    <h2 class="post-title">
+                        <a href="/posts/Working on New Stuff/">Working on New Stuff.</a>
+                    </h2>
+                    <p class="post-excerpt">
+                        New Website, Who Dis? #
+If you are here, you are probably wondering what happened to my website.
+New domain? New Look and Feel? Everything feels...nice?!
+Yea, I&#39;ve been doing a little bit of Rebrandin...
+                    </p>
+                </div>
+                <div class="post-footer">
+                    
+                    <div class="post-tags">
+                        
+                        <span class="tag">Web Development</span>
+                        
+                        <span class="tag">Personal</span>
+                        
+                    </div>
+                    
+                    <a href="/posts/Working on New Stuff/" class="read-more">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="blog-post card">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <time datetime="2025-04-20">April 20, 2025</time>
+                        
+                        <div class="post-category-tags">
+                            
+                        </div>
+                        
+                    </div>
+                    <h2 class="post-title">
+                        <a href="/posts/the-switch-2/">The Switch 2</a>
+                    </h2>
+                    <p class="post-excerpt">
+                        The Switch 2 #
+Before anything, let me start off by saying that I will be trying to get one tomorrow. I&#39;ve taken a day off of work to be able to stake out at our tech store so I can be one of the firs...
+                    </p>
+                </div>
+                <div class="post-footer">
+                    
+                    <div class="post-tags">
+                        
+                        <span class="tag">Gaming</span>
+                        
+                        <span class="tag">Tech</span>
+                        
+                        <span class="tag">Rant</span>
+                        
+                    </div>
+                    
+                    <a href="/posts/the-switch-2/" class="read-more">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="blog-post card">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <time datetime="2025-03-17">March 17, 2025</time>
+                        
+                        <div class="post-category-tags">
+                            
+                        </div>
+                        
+                    </div>
+                    <h2 class="post-title">
+                        <a href="/posts/opinion-on-ai-code/">My opinion on AI code</a>
+                    </h2>
+                    <p class="post-excerpt">
+                        My opinion on AI #
+I feel like it needs to be said. AI code is not a great thing to do, but I cannot say it&#39;s a horrible thing to do either. I feel like I&#39;m gonna have this question asked a lot anyway...
+                    </p>
+                </div>
+                <div class="post-footer">
+                    
+                    <div class="post-tags">
+                        
+                        <span class="tag">Programming</span>
+                        
+                        <span class="tag">Rant</span>
+                        
+                    </div>
+                    
+                    <a href="/posts/opinion-on-ai-code/" class="read-more">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="blog-post card">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <time datetime="2025-03-11">March 11, 2025</time>
+                        
+                        <div class="post-category-tags">
+                            
+                        </div>
+                        
+                    </div>
+                    <h2 class="post-title">
+                        <a href="/posts/my-new-blog-system/">My New Blog System</a>
+                    </h2>
+                    <p class="post-excerpt">
+                        My New Blog System #
+Yea, this was a long time coming. I hated writing blogs in HTML. So I asked an AI to help me set up a way to do it in MD instead. It aint pretty, but it works.
+Finally, I can writ...
+                    </p>
+                </div>
+                <div class="post-footer">
+                    
+                    <div class="post-tags">
+                        
+                        <span class="tag">Web Development</span>
+                        
+                    </div>
+                    
+                    <a href="/posts/my-new-blog-system/" class="read-more">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="blog-post card">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <time datetime="2025-03-11">March 11, 2025</time>
+                        
+                        <div class="post-category-tags">
+                            
+                        </div>
+                        
+                    </div>
+                    <h2 class="post-title">
+                        <a href="/posts/testing-123/">Testing...1...2...3...</a>
+                    </h2>
+                    <p class="post-excerpt">
+                        I am in a car right now #
+I figured sometimes I may not be able to build the blog myself, so I set up an automation from my phone .
+this blogpost is nothing but a test and will probably be deleted soo...
+                    </p>
+                </div>
+                <div class="post-footer">
+                    
+                    <div class="post-tags">
+                        
+                        <span class="tag">Testing</span>
+                        
+                    </div>
+                    
+                    <a href="/posts/testing-123/" class="read-more">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="blog-post card">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <time datetime="2025-01-05">January 5, 2025</time>
+                        
+                        <div class="post-category-tags">
+                            
+                        </div>
+                        
+                    </div>
+                    <h2 class="post-title">
+                        <a href="/posts/2025-goals-and-reflections/">2025 Goals and Reflections</a>
+                    </h2>
+                    <p class="post-excerpt">
+                        2025 Goals and Reflections #
+As we step into 2025, I find myself reflecting on the journey of 2024 and looking ahead to what this new year might bring. It&#39;s been quite a ride!
+Looking Back at 2024 #
+2...
+                    </p>
+                </div>
+                <div class="post-footer">
+                    
+                    <div class="post-tags">
+                        
+                        <span class="tag">Personal</span>
+                        
+                    </div>
+                    
+                    <a href="/posts/2025-goals-and-reflections/" class="read-more">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="blog-post card">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <time datetime="2024-10-14">October 14, 2024</time>
+                        
+                        <div class="post-category-tags">
+                            
+                        </div>
+                        
+                    </div>
+                    <h2 class="post-title">
+                        <a href="/posts/i-am-sorry/">I am Sorry</a>
+                    </h2>
+                    <p class="post-excerpt">
+                        I often find myself longing for the love of another. Someone who will hold me dear...Someone who will make me feel better in case im ever down...
+And I found that person not too long ago. But things g...
+                    </p>
+                </div>
+                <div class="post-footer">
+                    
+                    <div class="post-tags">
+                        
+                        <span class="tag">Personal</span>
+                        
+                        <span class="tag">Mental Health</span>
+                        
+                        <span class="tag">Rant</span>
+                        
+                    </div>
+                    
+                    <a href="/posts/i-am-sorry/" class="read-more">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="blog-post card">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <time datetime="2024-09-23">September 23, 2024</time>
+                        
+                        <div class="post-category-tags">
+                            
+                        </div>
+                        
+                    </div>
+                    <h2 class="post-title">
+                        <a href="/posts/changes/">Changes</a>
+                    </h2>
+                    <p class="post-excerpt">
+                        Yeah...
+So Last year wasn&#39;t great...With all the big hits in the guts I&#39;ve had, and letting go of an angel...
+Safe to say I haven&#39;t done very well this year. It was truly one of the wildest years I&#39;ve...
+                    </p>
+                </div>
+                <div class="post-footer">
+                    
+                    <div class="post-tags">
+                        
+                        <span class="tag">Personal</span>
+                        
+                        <span class="tag">Mental Health</span>
+                        
+                    </div>
+                    
+                    <a href="/posts/changes/" class="read-more">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="blog-post card">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <time datetime="2024-06-20">June 20, 2024</time>
+                        
+                        <div class="post-category-tags">
+                            
+                        </div>
+                        
+                    </div>
+                    <h2 class="post-title">
+                        <a href="/posts/cake-day/">🎂It Muh Cake Day🎂</a>
+                    </h2>
+                    <p class="post-excerpt">
+                        🎂IT MUH CAKE DAY🎂 #
+Yeah, I don&#39;t really know what else to put here. I&#39;m 23 years old as of today.
+I&#39;m normally not a big fan of celebrating my birthday, but for some reason I&#39;m pretty excited about...
+                    </p>
+                </div>
+                <div class="post-footer">
+                    
+                    <div class="post-tags">
+                        
+                        <span class="tag">Personal</span>
+                        
+                    </div>
+                    
+                    <a href="/posts/cake-day/" class="read-more">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="blog-post card">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <time datetime="2024-05-24">May 24, 2024</time>
+                        
+                        <div class="post-category-tags">
+                            
+                        </div>
+                        
+                    </div>
+                    <h2 class="post-title">
+                        <a href="/posts/what-is-happening/">What the Fuck is happening!?</a>
+                    </h2>
+                    <p class="post-excerpt">
+                        I am not gonna sugarcoat it, I&#39;ve lost track.
+With everything that is happening lately, All the hacks, Crowdstrike, Data Breaches, and controversies around the world (Including, but not limited to a l...
+                    </p>
+                </div>
+                <div class="post-footer">
+                    
+                    <div class="post-tags">
+                        
+                        <span class="tag">Personal</span>
+                        
+                    </div>
+                    
+                    <a href="/posts/what-is-happening/" class="read-more">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="blog-post card">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <time datetime="2024-04-17">April 17, 2024</time>
+                        
+                        <div class="post-category-tags">
+                            
+                        </div>
+                        
+                    </div>
+                    <h2 class="post-title">
+                        <a href="/posts/dealing-with-stuff/">Dealing with Stuff.</a>
+                    </h2>
+                    <p class="post-excerpt">
+                        Dealing with Stuff. #
+I don&#39;t really know where to begin with this to be honest.
+I&#39;ve been struggling with a lot of shit lately. And honestly, I think its getting way over my head.
+I suppose I gotta s...
+                    </p>
+                </div>
+                <div class="post-footer">
+                    
+                    <div class="post-tags">
+                        
+                        <span class="tag">Personal</span>
+                        
+                        <span class="tag">Mental Health</span>
+                        
+                    </div>
+                    
+                    <a href="/posts/dealing-with-stuff/" class="read-more">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="blog-post card">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <time datetime="2023-12-12">December 12, 2023</time>
+                        
+                        <div class="post-category-tags">
+                            
+                        </div>
+                        
+                    </div>
+                    <h2 class="post-title">
+                        <a href="/posts/first-blogpost/">First Blogpost!</a>
+                    </h2>
+                    <p class="post-excerpt">
+                        My first blogpost, wow. #
+Okay, so...I&#39;m totally new to this kind of thing, and I don&#39;t even really know what to put here.
+I&#39;ll try to keep it to important things primarily...But I wont let that stop ...
+                    </p>
+                </div>
+                <div class="post-footer">
+                    
+                    <div class="post-tags">
+                        
+                        <span class="tag">Personal</span>
+                        
+                    </div>
+                    
+                    <a href="/posts/first-blogpost/" class="read-more">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+
+            
+        </div>
+
+        <div class="blog-sidebar">
+            
+            <div class="sidebar-widget card">
+                <h3>Tags</h3>
+                <div class="tag-cloud">
+                    
+                    <a href="/blog/tags/gaming/" class="tag-link">Gaming</a>
+                    
+                    <a href="/blog/tags/mental-health/" class="tag-link">Mental Health</a>
+                    
+                    <a href="/blog/tags/personal/" class="tag-link">Personal</a>
+                    
+                    <a href="/blog/tags/programming/" class="tag-link">Programming</a>
+                    
+                    <a href="/blog/tags/rant/" class="tag-link">Rant</a>
+                    
+                    <a href="/blog/tags/tech/" class="tag-link">Tech</a>
+                    
+                    <a href="/blog/tags/testing/" class="tag-link">Testing</a>
+                    
+                    <a href="/blog/tags/web-development/" class="tag-link">Web Development</a>
+                    
+                </div>
+            </div>
+            
+
+            
+            <div class="sidebar-widget card">
+                <h3>Recent Posts</h3>
+                <ul class="recent-posts">
+                    
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<style>
+.blog-page {
+    padding-bottom: 3rem;
+}
+
+.blog-page .container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+}
+
+.blog-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.blog-post {
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.blog-post:hover {
+    border-color: var(--primary-dim);
+    transform: translateY(-2px);
+}
+
+.post-header {
+    margin-bottom: 1.5rem;
+}
+
+.post-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.post-meta time {
+    color: var(--text-muted);
+}
+
+.post-category {
+    background: var(--primary-dim);
+    color: var(--primary-bright);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.post-title {
+    margin-bottom: 1rem;
+}
+
+.post-title a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.post-title a:hover {
+    color: var(--primary-bright);
+}
+
+.post-excerpt {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.post-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: var(--surface-hover);
+    color: var(--text-muted);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.read-more {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--primary-bright);
+    transform: translateX(5px);
+}
+
+.read-more svg {
+    width: 16px;
+    height: 16px;
+}
+
+.blog-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar-widget {
+    padding: 1.5rem;
+}
+
+.sidebar-widget h3 {
+    color: var(--primary-bright);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-dim);
+    padding-bottom: 0.5rem;
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-list li {
+    margin-bottom: 0.75rem;
+}
+
+.category-list a {
+    color: var(--text-muted);
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.category-list a:hover {
+    color: var(--primary);
+}
+
+.category-list span {
+    background: var(--surface-hover);
+    color: var(--text-muted);
+    padding: 0.1rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.recent-posts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recent-posts li {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.recent-posts li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.recent-posts a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.recent-posts a:hover {
+    color: var(--primary);
+}
+
+.recent-posts time {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.no-posts {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.no-posts h3 {
+    color: var(--primary-bright);
+    margin-bottom: 1rem;
+}
+
+.no-posts code {
+    background: var(--surface-hover);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-link {
+    background: var(--surface-hover);
+    color: var(--text-muted);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.tag-link:hover {
+    background: var(--primary-dim);
+    color: var(--primary-bright);
+}
+
+.post-category-tags {
+    display: flex;
+    gap: 0.5rem;
+}
+
+@media (max-width: 968px) {
+    .blog-page .container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .post-footer {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+}
+</style>
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p class="footer-text">
+                © 2025 Aurora "GH0STP4WZ" Hartman
+            </p>
+            <p class="footer-love">
+                Made with <span class="heart">❤️</span> and <span class="trans-flag">🏳️‍⚧️</span> rights
+            </p>
+        </div>
+    </div>
+</footer>
+
+<style>
+.footer {
+    margin-top: auto;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.footer-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-love {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.heart {
+    color: var(--primary);
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+.trans-flag {
+    filter: brightness(1.2);
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        font-size: 0.8rem;
+    }
+}
+</style>
+
+    
+    <script src="/js/main.js"></script>
+    <!-- Added animations script -->
+    <script src="/js/animations.js"></script>
+</body>
+</html>

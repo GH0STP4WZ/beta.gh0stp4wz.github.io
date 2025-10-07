@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links - GH0STP4WZ</title>
+    <meta name="description" content="Personal website of Aurora Dess (GH0STP4WZ) - Demi-Girl, Developer, and Community Moderator">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <nav class="navigation">
+    <div class="container">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <a href="/" class="brand-link">
+                    <span class="brand-text">GH0STP4WZ</span>
+                </a>
+            </div>
+            
+            <div class="nav-tabs">
+                <a href="/" class="nav-tab ">
+                    Home
+                </a>
+                <a href="/links/" class="nav-tab active">
+                    Links
+                </a>
+                <a href="/downloads/" class="nav-tab ">
+                    Downloads
+                </a>
+                <a href="/blog/" class="nav-tab ">
+                    Blog
+                </a>
+                <a href="/games/" class="nav-tab ">
+                    Games
+                </a>
+                <a href="/misc/" class="nav-tab ">
+                    Misc
+                </a>
+                <!-- External link example -->
+                <a href="https://your-other-website.com" class="nav-tab external" target="_blank" rel="noopener">
+                    External
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15,3 21,3 21,9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<style>
+.navigation {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.brand-link {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.brand-text {
+    background: linear-gradient(45deg, var(--primary), var(--primary-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-tab {
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-tab:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+    transform: translateY(-1px);
+}
+
+.nav-tab.active {
+    background: var(--primary-dim);
+    color: var(--primary-bright);
+}
+
+.nav-tab.external .external-icon {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.nav-tab.external:hover .external-icon {
+    opacity: 1;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 3px;
+}
+
+.mobile-menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: var(--text);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .nav-tabs {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Mobile menu styles would go here */
+}
+</style>
+
+    
+    <main class="fade-in">
+        
+<header class="page-header slide-up">
+    <div class="container">
+        <div class="header-content">
+            
+            <h1 class="page-title">Links</h1>
+            
+            <p class="page-subtitle">Find me across the web and connect with me</p>
+            
+        </div>
+    </div>
+</header>
+
+<style>
+.page-header {
+    padding: 3rem 0 2rem;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+.header-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary), var(--primary-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        padding: 2rem 0 1.5rem;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+    }
+}
+</style>
+
+
+<div class="links-page">
+    <div class="container">
+        <div class="links-grid">
+            <div class="link-category">
+                <h2 class="category-title">Social Media</h2>
+                <div class="links-list">
+                    <a href="https://discord.gg/aYxpgkvdvR" class="link-card card" target="_blank" rel="noopener">
+                        <div class="link-icon discord">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" fill="currentColor">
+                                <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+                            </svg>
+                        </div>
+                        <div class="link-info">
+                            <h3>Discord</h3>
+                            <p>Join my server</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://github.com/gh0stp4wz" class="link-card card" target="_blank" rel="noopener">
+                        <div class="link-icon github">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </div>
+                        <div class="link-info">
+                            <h3>GitHub</h3>
+                            <p>Check out my code</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="link-category">
+                <h2 class="category-title">Contact</h2>
+                <div class="links-list">
+                    <a href="mailto:contact@gh0stp4wz.is-a.dev" class="link-card card">
+                        <div class="link-icon email">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <div class="link-info">
+                            <h3>Email</h3>
+                            <p>Send me a message</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.links-page {
+    padding-bottom: 3rem;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.link-category {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--border);
+}
+
+.category-title {
+    color: var(--primary-bright);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--primary-dim);
+    padding-bottom: 0.5rem;
+}
+
+.links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.link-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.link-card:hover {
+    border-color: var(--primary-dim);
+    transform: translateX(5px);
+}
+
+.link-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.link-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.link-icon.discord {
+    background: #5865F2;
+    color: white;
+}
+
+.link-icon.github {
+    background: #333;
+    color: white;
+}
+
+.link-icon.gaming {
+    background: var(--ctp-green);
+    color: var(--background);
+}
+
+.link-icon.email {
+    background: var(--primary);
+    color: white;
+}
+
+.link-info h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+.link-info p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .links-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .link-category {
+        padding: 1.5rem;
+    }
+}
+</style>
+
+    </main>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p class="footer-text">
+                © 2025 Aurora "GH0STP4WZ" Hartman
+            </p>
+            <p class="footer-love">
+                Made with <span class="heart">❤️</span> and <span class="trans-flag">🏳️‍⚧️</span> rights
+            </p>
+        </div>
+    </div>
+</footer>
+
+<style>
+.footer {
+    margin-top: auto;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.footer-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-love {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.heart {
+    color: var(--primary);
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+.trans-flag {
+    filter: brightness(1.2);
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        font-size: 0.8rem;
+    }
+}
+</style>
+
+    
+    <script src="/js/main.js"></script>
+    <!-- Added animations script -->
+    <script src="/js/animations.js"></script>
+</body>
+</html>
